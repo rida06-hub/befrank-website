@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracking - BeFrank</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Almarai:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="page active" id="expensePage">
+        <header class="main-header">
+            <nav class="nav-container">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon"></div>
+                    <div>
+                        <div class="logo-text">BeFrank</div>
+                        <div class="logo-tagline">Financial Companion</div>
+                    </div>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li><a href="frank-ai.html"><i class="fas fa-robot"></i> Frank AI</a></li>
+                    <li><a href="expenses.html" class="active"><i class="fas fa-receipt"></i> Expenses</a></li>
+                    <li><a href="bill-shaving.html"><i class="fas fa-money-bill-wave"></i> Bill Shaving</a></li>
+                    <li><a href="subscriptions.html"><i class="fas fa-search"></i> Subscriptions</a></li>
+                    <li><a href="credit-score.html"><i class="fas fa-chart-line"></i> Readiness</a></li>
+                </ul>
+                <div class="user-menu">
+                    <span class="user-name">User</span>
+                    <div class="user-avatar" onclick="showUserMenu()">U</div>
+                </div>
+            </nav>
+        </header>
+
+        <div class="main-container">
+            <h1 class="page-title">Expense Tracking</h1>
+            <p class="page-subtitle">Track and categorize your expenses with AI assistance</p>
+
+            <div class="legal-banner">
+                <i class="fas fa-database"></i>
+                <div>
+                    <strong>PDPL Compliance:</strong> You can edit or delete your expense data at any time. Data stored for max 24 months.
+                </div>
+            </div>
+
+            <div class="expense-container">
+                <div class="expense-form">
+                    <h3 style="margin-bottom: 1.5rem;">Add New Expense</h3>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Description</label>
+                        <input type="text" class="form-input" id="expenseDescription" placeholder="e.g., Starbucks coffee, Carrefour shopping">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Amount (AED)</label>
+                        <input type="number" class="form-input" id="expenseAmount" placeholder="0.00" step="0.01" min="0">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Category</label>
+                        <select class="form-select" id="expenseCategory">
+                            <option value="">Select Category (AI will suggest)</option>
+                            <option value="Food">Food & Dining</option>
+                            <option value="Transport">Transportation</option>
+                            <option value="Shopping">Shopping</option>
+                            <option value="Entertainment">Entertainment</option>
+                            <option value="Bills">Bills & Utilities</option>
+                            <option value="Education">Education</option>
+                            <option value="Healthcare">Healthcare</option>
+                            <option value="Travel">Travel</option>
+                            <option value="Personal">Personal Care</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Date</label>
+                        <input type="date" class="form-input" id="expenseDate" value="">
+                    </div>
+
+                    <button class="form-btn" onclick="saveExpense()">
+                        <i class="fas fa-plus"></i> Add Expense
+                    </button>
+
+                    <div style="margin-top: 1.5rem; padding: 1rem; background: var(--dune-light); border-radius: 8px;">
+                        <h4 style="margin-bottom: 0.5rem; color: var(--dune-warning);">
+                            <i class="fas fa-robot"></i> AI Categorization
+                        </h4>
+                        <p style="font-size: 0.9rem;">
+                            AI will suggest a category based on description. You can change it if needed.
+                        </p>
+                        <p style="font-size: 0.8rem; color: var(--dune-dark); margin-top: 0.5rem;">
+                            <i class="fas fa-exclamation-triangle"></i> AI may miscategorize - you have final control
+                        </p>
+                    </div>
+
+                    <!-- Budget Setting (Premium) -->
+                    <div style="margin-top: 1.5rem; padding: 1rem; background: linear-gradient(45deg, rgba(198, 167, 105, 0.1), rgba(230, 111, 81, 0.1)); border-radius: 8px; border: 1px solid var(--dune-gold);">
+                        <h4 style="margin-bottom: 0.5rem; color: var(--dune-gold);">
+                            <i class="fas fa-crown"></i> Budget+ Feature
+                        </h4>
+                        <p style="font-size: 0.9rem;">
+                            Set monthly limits for each category and get alerts when you're close to exceeding.
+                        </p>
+                        <button class="cta-btn secondary" style="margin-top: 0.5rem; width: 100%;" onclick="showFeature('budget-setting')">
+                            <i class="fas fa-lock"></i> Upgrade to Budget+
+                        </button>
+                    </div>
+                </div>
+
+                <div class="expense-list-container">
+                    <div class="expense-list-header">
+                        <h3>Your Expenses</h3>
+                        <div class="card-status status-active" id="totalExpenses">0 Expenses</div>
+                    </div>
+                    
+                    <div class="expense-list" id="expenseList">
+                        <!-- Expenses will be loaded here -->
+                    </div>
+
+                    <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--dune-sand);">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span>Total Expenses:</span>
+                            <span style="font-weight: 600;" id="totalExpenseAmount">AED 0</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <span>This Month:</span>
+                            <span style="color: var(--dune-warning); font-weight: 600;" id="monthlyExpenseAmount">AED 0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Monthly Summary -->
+            <div class="report-section" style="margin-top: 2rem;">
+                <div class="section-header">
+                    <h2><i class="fas fa-chart-pie"></i> Monthly Breakdown</h2>
+                    <button class="cta-btn secondary" onclick="exportExpenses()">
+                        <i class="fas fa-file-export"></i> Export Data
+                    </button>
+                </div>
+                <div class="insights-grid">
+                    <div class="insight-card">
+                        <div class="insight-value" id="avgDailySpend">AED 0</div>
+                        <div class="insight-label">Avg Daily Spend</div>
+                    </div>
+                    <div class="insight-card">
+                        <div class="insight-value" id="mostExpensiveDay">-</div>
+                        <div class="insight-label">Most Expensive Day</div>
+                    </div>
+                    <div class="insight-card">
+                        <div class="insight-value" id="categoryCount">0</div>
+                        <div class="insight-label">Categories Used</div>
+                    </div>
+                    <div class="insight-card">
+                        <div class="insight-value" id="aiAccuracy">100%</div>
+                        <div class="insight-label">AI Accuracy Rate</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="main-footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>BeFrank</h4>
+                    <p>Your UAE Financial Companion</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="showPDPLInfo()">PDPL Compliance</a></li>
+                        <li><a href="#" onclick="showDataRights()">Data Rights</a></li>
+                        <li><a href="#" onclick="showTerms()">Terms of Use</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="legal-footer">
+                <p><strong>Data Protection:</strong> Your expense data is processed according to UAE PDPL. You can edit or delete any transaction at any time. AI categorization is suggestive only.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/data.js"></script>
+    <script>
+        function exportExpenses() {
+            const data = dataManager.exportData('csv');
+            const blob = new Blob([data], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `befrank-expenses-${new Date().toISOString().split('T')[0]}.csv`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+            showAlert('Expense data exported successfully!', 'success');
+        }
+    </script>
+</body>
+</html>

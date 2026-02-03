@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Readiness - BeFrank</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Almarai:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="page active" id="creditScorePage">
+        <header class="main-header">
+            <nav class="nav-container">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon"></div>
+                    <div>
+                        <div class="logo-text">BeFrank</div>
+                        <div class="logo-tagline">Financial Companion</div>
+                    </div>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li><a href="frank-ai.html"><i class="fas fa-robot"></i> Frank AI</a></li>
+                    <li><a href="expenses.html"><i class="fas fa-receipt"></i> Expenses</a></li>
+                    <li><a href="bill-shaving.html"><i class="fas fa-money-bill-wave"></i> Bill Shaving</a></li>
+                    <li><a href="subscriptions.html"><i class="fas fa-search"></i> Subscriptions</a></li>
+                    <li><a href="credit-score.html" class="active"><i class="fas fa-chart-line"></i> Readiness</a></li>
+                </ul>
+                <div class="user-menu">
+                    <span class="user-name">User</span>
+                    <div class="user-avatar" onclick="showUserMenu()">U</div>
+                </div>
+            </nav>
+        </header>
+
+        <div class="main-container">
+            <h1 class="page-title">Financial Readiness Indicator</h1>
+            <p class="page-subtitle">Educational awareness of your financial habits</p>
+
+            <div class="legal-banner">
+                <i class="fas fa-balance-scale"></i>
+                <div>
+                    <strong>Not a Credit Score:</strong> This is an educational indicator only. Not for loan applications. The Emirates Credit Bureau (ECB) is the official credit authority in the UAE.
+                </div>
+            </div>
+
+            <div class="credit-score-container">
+                <div class="score-display-section">
+                    <div class="score-circle">
+                        <svg class="score-svg" viewBox="0 0 200 200">
+                            <circle class="score-circle-bg" cx="100" cy="100" r="90"></circle>
+                            <circle class="score-circle-progress" cx="100" cy="100" r="90" data-progress="72"></circle>
+                        </svg>
+                        <div class="score-inner">
+                            <div class="score-number" id="readinessScore">7.2</div>
+                            <div class="score-label">Out of 10</div>
+                        </div>
+                    </div>
+                    
+                    <h3 style="margin-bottom: 0.5rem;">Financial Readiness</h3>
+                    <p style="color: var(--dune-dark); opacity: 0.8; margin-bottom: 1.5rem;">
+                        Based on your financial habits and patterns
+                    </p>
+                    
+                    <button class="cta-btn secondary" onclick="editReadinessFactors()" style="width: 100%;">
+                        <i class="fas fa-edit"></i> Edit Factors
+                    </button>
+                    
+                    <div style="margin-top: 1.5rem; padding: 1rem; background: var(--dune-light); border-radius: 8px;">
+                        <h4 style="margin-bottom: 0.5rem; color: var(--dune-warning);">
+                            <i class="fas fa-exclamation-triangle"></i> Important
+                        </h4>
+                        <p style="font-size: 0.9rem;">
+                            This is NOT a credit score. Banks do not use this. For official credit assessment, contact Emirates Credit Bureau.
+                        </p>
+                    </div>
+
+                    <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(56, 176, 0, 0.1); border-radius: 8px; border: 1px solid var(--dune-success);">
+                        <h4 style="margin-bottom: 0.5rem; color: var(--dune-success);">
+                            <i class="fas fa-chart-line"></i> Improvement Tips
+                        </h4>
+                        <ul style="font-size: 0.9rem; padding-left: 1.2rem;">
+                            <li>Pay bills on time</li>
+                            <li>Maintain consistent spending</li>
+                            <li>Track all expenses</li>
+                            <li>Review subscriptions monthly</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="score-factors-section">
+                    <h3 style="margin-bottom: 1.5rem;">Factor Breakdown</h3>
+                    
+                    <div class="score-factors" id="scoreFactors">
+                        <div class="factor-item">
+                            <div class="factor-icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <div>
+                                <strong>Telecom Payments</strong>
+                                <div style="color: var(--dune-success); font-size: 0.9rem;">100% On-time</div>
+                                <div style="font-size: 0.8rem; color: var(--dune-dark); opacity: 0.7;">
+                                    Bill payment consistency
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="factor-item">
+                            <div class="factor-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div>
+                                <strong>Academic Consistency</strong>
+                                <div style="color: var(--dune-success); font-size: 0.9rem;">Good Standing</div>
+                                <div style="font-size: 0.8rem; color: var(--dune-dark); opacity: 0.7;">
+                                    Educational discipline
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="factor-item">
+                            <div class="factor-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div>
+                                <strong>App Engagement</strong>
+                                <div style="color: var(--dune-success); font-size: 0.9rem;">Regular User</div>
+                                <div style="font-size: 0.8rem; color: var(--dune-dark); opacity: 0.7;">
+                                    Financial awareness activity
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="factor-item">
+                            <div class="factor-icon">
+                                <i class="fas fa-money-bill-wave"></i>
+                            </div>
+                            <div>
+                                <strong>Expense Patterns</strong>
+                                <div style="color: var(--dune-success); font-size: 0.9rem;">Balanced Spending</div>
+                                <div style="font-size: 0.8rem; color: var(--dune-dark); opacity: 0.7;">
+                                    Budget adherence
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="factor-item">
+                            <div class="factor-icon">
+                                <i class="fas fa-piggy-bank"></i>
+                            </div>
+                            <div>
+                                <strong>Saving Habits</strong>
+                                <div style="color: var(--dune-success); font-size: 0.9rem;">Regular Savings</div>
+                                <div style="font-size: 0.8rem; color: var(--dune-dark); opacity: 0.7;">
+                                    Monthly saving consistency
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="factor-item">
+                            <div class="factor-icon">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <div>
+                                <strong>Subscription Management</strong>
+                                <div style="color: var(--dune-success); font-size: 0.9rem;">Well Managed</div>
+                                <div style="font-size: 0.8rem; color: var(--dune-dark); opacity: 0.7;">
+                                    Active subscription review
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(230, 57, 70, 0.1); border-radius: 12px;">
+                        <h4 style="margin-bottom: 0.5rem; color: var(--dune-warning);">
+                            <i class="fas fa-landmark"></i> Official Credit Information
+                        </h4>
+                        <p style="font-size: 0.9rem; margin-bottom: 1rem;">
+                            For official credit assessment in the UAE, contact:
+                        </p>
+                        <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
+                            <div style="padding: 0.8rem; background: white; border-radius: 8px; flex: 1; min-width: 200px;">
+                                <strong>Emirates Credit Bureau (ECB)</strong>
+                                <div style="font-size: 0.9rem; color: var(--dune-dark); opacity: 0.8;">
+                                    Federal Law No. 6 of 2010
+                                </div>
+                                <div style="font-size: 0.8rem; color: var(--dune-oasis); margin-top: 0.5rem;">
+                                    <i class="fas fa-phone"></i> +971 600 523432
+                                </div>
+                            </div>
+                            <div style="font-size: 0.9rem; flex: 2;">
+                                The official credit authority for UAE. Banks are required by law to use ECB for credit assessment.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Improvement Plan -->
+                    <div style="margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, rgba(228, 214, 185, 0.1) 0%, rgba(248, 244, 233, 0.1) 100%); border-radius: 12px;">
+                        <h4 style="margin-bottom: 1rem; color: var(--dune-dark);">
+                            <i class="fas fa-rocket"></i> Your Improvement Plan
+                        </h4>
+                        <div style="display: grid; gap: 1rem;">
+                            <div style="display: flex; align-items: center; gap: 1rem; padding: 0.8rem; background: white; border-radius: 8px;">
+                                <div style="color: var(--dune-success);">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div>
+                                    <strong>Track all expenses</strong>
+                                    <div style="font-size: 0.9rem; color: var(--dune-dark); opacity: 0.7;">Use our expense tracker daily</div>
+                                </div>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 1rem; padding: 0.8rem; background: white; border-radius: 8px;">
+                                <div style="color: var(--dune-oasis);">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div>
+                                    <strong>Set bill reminders</strong>
+                                    <div style="font-size: 0.9rem; color: var(--dune-dark); opacity: 0.7;">Never miss a payment deadline</div>
+                                </div>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 1rem; padding: 0.8rem; background: white; border-radius: 8px;">
+                                <div style="color: var(--dune-gold);">
+                                    <i class="fas fa-bullseye"></i>
+                                </div>
+                                <div>
+                                    <strong>Create saving goals</strong>
+                                    <div style="font-size: 0.9rem; color: var(--dune-dark); opacity: 0.7;">Start with small, achievable targets</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="main-footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>BeFrank</h4>
+                    <p>Your UAE Financial Companion</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="showECBInfo()">About ECB</a></li>
+                        <li><a href="#" onclick="showDisclaimers()">Disclaimers</a></li>
+                        <li><a href="#" onclick="showTerms()">Terms of Use</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="legal-footer">
+                <p><strong>Legal Disclaimer:</strong> This Financial Readiness Indicator is for educational awareness only. It is not a credit score, has no legal standing with UAE banks, and cannot be used for loan applications. The Emirates Credit Bureau (ECB) is the official credit authority in the UAE under Federal Law No. 6 of 2010.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/data.js"></script>
+</body>
+</html>

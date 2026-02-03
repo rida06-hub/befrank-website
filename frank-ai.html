@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frank AI - BeFrank</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Almarai:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/frank.css">
+</head>
+<body>
+    <div class="page active" id="frankAIPage">
+        <header class="main-header">
+            <nav class="nav-container">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon"></div>
+                    <div>
+                        <div class="logo-text">BeFrank</div>
+                        <div class="logo-tagline">Financial Companion</div>
+                    </div>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li><a href="frank-ai.html" class="active"><i class="fas fa-robot"></i> Frank AI</a></li>
+                    <li><a href="expenses.html"><i class="fas fa-receipt"></i> Expenses</a></li>
+                    <li><a href="bill-shaving.html"><i class="fas fa-money-bill-wave"></i> Bill Shaving</a></li>
+                    <li><a href="subscriptions.html"><i class="fas fa-search"></i> Subscriptions</a></li>
+                    <li><a href="credit-score.html"><i class="fas fa-chart-line"></i> Readiness</a></li>
+                </ul>
+                <div class="user-menu">
+                    <span class="user-name">User</span>
+                    <div class="user-avatar" onclick="showUserMenu()">U</div>
+                </div>
+            </nav>
+        </header>
+
+        <div class="main-container">
+            <h1 class="page-title">Frank AI Assistant</h1>
+            <p class="page-subtitle">Your finance genie in a thobe! Ask me anything about money matters.</p>
+
+            <div class="legal-banner">
+                <i class="fas fa-exclamation-triangle"></i>
+                <div>
+                    <strong>AI Classification Notice:</strong> Frank may miscategorize transactions. All suggestions are editable and you have final control. This is for educational awareness only.
+                </div>
+            </div>
+
+            <div class="frank-section">
+                <div class="frank-character-container">
+                    <div class="frank-genie">
+                        <div class="frank-body">
+                            <div class="thobe"></div>
+                            <div class="thobe-folds"></div>
+                            <div class="thobe-folds2"></div>
+                            <div class="thobe-folds3"></div>
+                        </div>
+                        <div class="frank-head">
+                            <div class="head-base">
+                                <div class="face">
+                                    <div class="eyes">
+                                        <div class="eye left"></div>
+                                        <div class="eye right"></div>
+                                    </div>
+                                    <div class="smile"></div>
+                                </div>
+                                <div class="headwear">
+                                    <div class="ghutra"></div>
+                                    <div class="agal"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="frank-arms">
+                            <div class="arm left"></div>
+                            <div class="arm right"></div>
+                        </div>
+                        <div class="genie-effect"></div>
+                    </div>
+                    <h3>Frank</h3>
+                    <p class="tagline">Your Finance Genie</p>
+                    <p style="font-size: 0.9rem; color: var(--dune-dark); margin-bottom: 1.5rem;">
+                        I speak Emirati slang and explain financial terms in plain language. Khalas with confusion!
+                    </p>
+                    
+                    <div class="frank-quick-questions">
+                        <h4><i class="fas fa-bolt"></i> Quick Questions</h4>
+                        <ul class="question-list" id="frankSuggestions">
+                            <!-- Suggestions will be loaded here -->
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="chat-container">
+                    <div class="chat-messages" id="frankChatMessages">
+                        <!-- Messages will appear here -->
+                    </div>
+                    <div class="chat-input-area">
+                        <input type="text" class="chat-input" id="frankChatInput" placeholder="Ask Frank anything... (Try: 'What is NSF fee?')">
+                        <button class="chat-send" onclick="sendFrankMessage()">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ai-warning" style="margin-top: 2rem;">
+                <i class="fas fa-robot"></i>
+                <div>
+                    <strong>Remember:</strong> Frank is an AI assistant for educational purposes only. His advice is based on general financial principles and may not apply to your specific situation. Always consult with a qualified financial advisor for personal advice.
+                </div>
+            </div>
+        </div>
+
+        <footer class="main-footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>BeFrank</h4>
+                    <p>Your UAE Financial Companion</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="showPDPLInfo()">PDPL Compliance</a></li>
+                        <li><a href="#" onclick="showDisclaimers()">Disclaimers</a></li>
+                        <li><a href="#" onclick="showTerms()">Terms of Use</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="legal-footer">
+                <p><strong>Educational Purpose Only:</strong> Frank AI provides explanations for educational awareness. Not financial advice. AI may miscategorize - you have final control over all decisions.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/frank-ai.js"></script>
+    <script src="js/data.js"></script>
+</body>
+</html>

@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BeFrank - UAE Financial Companion</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Almarai:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/frank.css">
+</head>
+<body>
+    <!-- Landing Page -->
+    <div class="page active" id="landingPage">
+        <header class="landing-header">
+            <nav class="landing-nav">
+                <div class="logo" onclick="window.location.href='index.html'">
+                    <!-- Replace with your logo image -->
+                    <div class="logo-image">
+                        <img src="logo.png" alt="BeFrank" onerror="this.style.display='none'">
+                        <div class="logo-fallback">BF</div>
+                    </div>
+                    <div>
+                        <div class="logo-text">BeFrank</div>
+                        <div class="logo-tagline">UAE Financial Companion</div>
+                    </div>
+                </div>
+                <div class="landing-cta">
+                    <button class="cta-btn secondary" onclick="scrollToFeatures()">Learn More</button>
+                    <button class="cta-btn primary" onclick="startOnboarding()">Get Started</button>
+                </div>
+            </nav>
+        </header>
+
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">Khalas with Financial Confusion! <span>Meet Frank</span></h1>
+                <p class="hero-subtitle">Your UAE-based financial advisor that simplifies money management for students. No jargon, just clarity.</p>
+                
+                <div class="hero-features">
+                    <div class="feature-badge">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>PDPL Compliant</span>
+                    </div>
+                    <div class="feature-badge">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Student Focused</span>
+                    </div>
+                    <div class="feature-badge">
+                        <i class="fas fa-robot"></i>
+                        <span>AI Assistant</span>
+                    </div>
+                    <div class="feature-badge">
+                        <i class="fas fa-lock"></i>
+                        <span>Bank-Level Security</span>
+                    </div>
+                </div>
+
+                <div class="hero-cta">
+                    <button class="cta-btn primary" onclick="startOnboarding()">
+                        <i class="fas fa-rocket"></i> Start Your Financial Journey
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Professional Frank Animation -->
+            <div class="frank-professional-container">
+                <div class="frank-professional">
+                    <!-- Frank Body - Business Attire -->
+                    <div class="frank-body-professional">
+                        <div class="business-suit">
+                            <div class="suit-lapel"></div>
+                            <div class="suit-pocket"></div>
+                        </div>
+                        <div class="professional-tie"></div>
+                    </div>
+                    
+                    <!-- Frank Head -->
+                    <div class="frank-head-professional">
+                        <div class="head-base-professional">
+                            <div class="face-professional">
+                                <div class="eyes-professional">
+                                    <div class="eye-professional left"></div>
+                                    <div class="eye-professional right"></div>
+                                </div>
+                                <div class="smile-professional"></div>
+                            </div>
+                            <div class="hair-professional"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Frank Arms -->
+                    <div class="frank-arms-professional">
+                        <div class="arm-professional left"></div>
+                        <div class="arm-professional right"></div>
+                    </div>
+                    
+                    <!-- Data Visualization Effect -->
+                    <div class="data-flow"></div>
+                    <div class="data-sparkle d1"></div>
+                    <div class="data-sparkle d2"></div>
+                    <div class="data-sparkle d3"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features-section" id="featuresSection">
+            <div class="features-container">
+                <h2>Why Choose BeFrank?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>Smart AI Assistant</h3>
+                        <p>Frank explains financial terms in simple Emirati slang. Khalas with confusion!</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                        <h3>Expense Tracking</h3>
+                        <p>Automatically categorize expenses with AI. Edit if it makes a mistake.</p>
+                    </div>
+                    <div class="feature-card premium">
+                        <div class="feature-icon">
+                            <i class="fas fa-money-bill-wave"></i>
+                        </div>
+                        <h3>Bill Optimization</h3>
+                        <p>Reduce bills through partner offers. Partner-led only - we never handle money.</p>
+                        <div class="premium-tag">Premium</div>
+                    </div>
+                    <div class="feature-card premium">
+                        <div class="feature-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3>Subscription Stalker</h3>
+                        <p>Find and cancel forgotten subscriptions. Save money every month.</p>
+                        <div class="premium-tag">Frank+</div>
+                    </div>
+                    <div class="feature-card premium">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Scam Training</h3>
+                        <p>Learn to recognize financial scams. Educational simulations only.</p>
+                        <div class="premium-tag">Frank Wealth</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Student Focused</h3>
+                        <p>Designed specifically for UAE students. Simple, clean, and effective.</p>
+                    </div>
+                </div>
+
+                <!-- Weekly Insights Banner -->
+                <div class="insights-banner">
+                    <div class="insights-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="insights-content">
+                        <h3>Weekly Spending Insights & Reports</h3>
+                        <p>Get detailed weekly reports on your spending patterns, trends, and opportunities to save money. Available across all plans!</p>
+                    </div>
+                </div>
+
+                <!-- Premium Features Section -->
+                <div class="premium-section">
+                    <h3>Premium Features Breakdown</h3>
+                    <div class="premium-grid">
+                        <div class="premium-feature">
+                            <div class="premium-icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <h4>AI Translator</h4>
+                            <p>Frank explains complex financial terms in simple language you understand</p>
+                            <span class="plan-tag frank-plus">Frank+</span>
+                        </div>
+                        <div class="premium-feature">
+                            <div class="premium-icon">
+                                <i class="fas fa-credit-card"></i>
+                            </div>
+                            <h4>Credit Readiness Score</h4>
+                            <p>Educational credit scoring to help you understand your financial health</p>
+                            <span class="plan-tag frank-plus">Frank+</span>
+                        </div>
+                        <div class="premium-feature">
+                            <div class="premium-icon">
+                                <i class="fas fa-university"></i>
+                            </div>
+                            <h4>Smart Bank Matching</h4>
+                            <p>Connect with lenders who'll actually approve you based on your profile</p>
+                            <span class="plan-tag wealth">Frank Wealth</span>
+                        </div>
+                        <div class="premium-feature">
+                            <div class="premium-icon">
+                                <i class="fas fa-hand-holding-usd"></i>
+                            </div>
+                            <h4>Debt Planning</h4>
+                            <p>Plan debt payoff with Snowball or Avalanche methods</p>
+                            <span class="plan-tag wealth">Frank Wealth</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pricing Section - Updated to match revenue model -->
+                <div class="pricing-section">
+                    <h3>Simple, Transparent Pricing</h3>
+                    <div class="pricing-cards">
+                        <!-- Just Frank (Free) -->
+                        <div class="pricing-card">
+                            <div class="pricing-header">
+                                <h4>Just Frank</h4>
+                                <div class="price">Free</div>
+                            </div>
+                            <div class="pricing-description">
+                                Perfect for getting started with financial basics
+                            </div>
+                            <ul class="pricing-features">
+                                <li><i class="fas fa-check"></i> Basic Budgeting</li>
+                                <li><i class="fas fa-check"></i> Financial Dictionary</li>
+                                <li><i class="fas fa-check"></i> Bill Reminders</li>
+                                <li><i class="fas fa-check"></i> Weekly Spending Insights</li>
+                                <li><i class="fas fa-check"></i> Expense Tracking</li>
+                                <li><i class="fas fa-times"></i> Premium Features</li>
+                            </ul>
+                            <button class="cta-btn secondary" onclick="startOnboarding()">Get Started Free</button>
+                        </div>
+                        
+                        <!-- Frank+ (AED 19/month) -->
+                        <div class="pricing-card featured">
+                            <div class="popular-badge">Most Popular</div>
+                            <div class="pricing-header">
+                                <h4>Frank+</h4>
+                                <div class="price">AED 19<span>/month</span></div>
+                            </div>
+                            <div class="pricing-description">
+                                Advanced features for serious financial management
+                            </div>
+                            <ul class="pricing-features">
+                                <li><i class="fas fa-check"></i> <strong>All Free Features</strong></li>
+                                <li><i class="fas fa-check"></i> AI Assistant & Translator</li>
+                                <li><i class="fas fa-check"></i> Credit Scoring (Educational)</li>
+                                <li><i class="fas fa-check"></i> Subscription Stalker</li>
+                                <li><i class="fas fa-check"></i> Advanced Weekly Reports</li>
+                                <li><i class="fas fa-check"></i> Bill Optimization</li>
+                            </ul>
+                            <button class="cta-btn primary" onclick="startOnboarding()">Start 7-Day Free Trial</button>
+                        </div>
+                        
+                        <!-- Frank Wealth (AED 29/month) -->
+                        <div class="pricing-card">
+                            <div class="pricing-header">
+                                <h4>Frank Wealth</h4>
+                                <div class="price">AED 29<span>/month</span></div>
+                            </div>
+                            <div class="pricing-description">
+                                Comprehensive financial planning for future growth
+                            </div>
+                            <ul class="pricing-features">
+                                <li><i class="fas fa-check"></i> <strong>All Frank+ Features</strong></li>
+                                <li><i class="fas fa-check"></i> Scam Training</li>
+                                <li><i class="fas fa-check"></i> Smart Bank Matching</li>
+                                <li><i class="fas fa-check"></i> Debt Planning</li>
+                                <li><i class="fas fa-check"></i> Priority Support</li>
+                                <li><i class="fas fa-check"></i> Advanced Analytics</li>
+                            </ul>
+                            <button class="cta-btn secondary" onclick="startOnboarding()">Start 7-Day Free Trial</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Feature Comparison Table -->
+                    <div class="comparison-table">
+                        <h4>Detailed Feature Comparison</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Feature</th>
+                                    <th>Just Frank</th>
+                                    <th>Frank+</th>
+                                    <th>Frank Wealth</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Basic Budgeting</td>
+                                    <td><i class="fas fa-check green"></i></td>
+                                    <td><i class="fas fa-check green"></i></td>
+                                    <td><i class="fas fa-check green"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Financial Dictionary</td>
+                                    <td><i class="fas fa-check green"></i></td>
+                                    <td><i class="fas fa-check green"></i></td>
+                                    <td><i class="fas fa-check green"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Weekly Spending Insights</td>
+                                    <td><i class="fas fa-check green"></i></td>
+                                    <td><i class="fas fa-check green"></i></td>
+                                    <td><i class="fas fa-check green"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>AI Assistant & Translator</td>
+                                    <td><i class="fas fa-times red"></i></td>
+                                    <td><i class="fas fa-check green"></i></td>
+                                    <td><i class="fas fa-check green"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Credit Scoring</td>
+                                    <td><i class="fas fa-times red"></i></td>
+                                    <td><i class="fas fa-check green"></i></td>
+                                    <td><i class="fas fa-check green"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Subscription Stalker</td>
+                                    <td><i class="fas fa-times red"></i></td>
+                                    <td><i class="fas fa-check green"></i></td>
+                                    <td><i class="fas fa-check green"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Scam Training</td>
+                                    <td><i class="fas fa-times red"></i></td>
+                                    <td><i class="fas fa-times red"></i></td>
+                                    <td><i class="fas fa-check green"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Smart Bank Matching</td>
+                                    <td><i class="fas fa-times red"></i></td>
+                                    <td><i class="fas fa-times red"></i></td>
+                                    <td><i class="fas fa-check green"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Debt Planning</td>
+                                    <td><i class="fas fa-times red"></i></td>
+                                    <td><i class="fas fa-times red"></i></td>
+                                    <td><i class="fas fa-check green"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Legal Footer -->
+        <footer class="main-footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>BeFrank</h4>
+                    <p>Your UAE Financial Companion</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Features</h4>
+                    <ul class="footer-links">
+                        <li><a href="#featuresSection">Budgeting</a></li>
+                        <li><a href="#featuresSection">Bill Optimization</a></li>
+                        <li><a href="#featuresSection">AI Assistant</a></li>
+                        <li><a href="#featuresSection">Subscription Management</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Plans</h4>
+                    <ul class="footer-links">
+                        <li><a href="#featuresSection">Just Frank (Free)</a></li>
+                        <li><a href="#featuresSection">Frank+ (AED 19/month)</a></li>
+                        <li><a href="#featuresSection">Frank Wealth (AED 29/month)</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="showTerms()">Terms & Conditions</a></li>
+                        <li><a href="#" onclick="showPrivacy()">Privacy Policy</a></li>
+                        <li><a href="#" onclick="showPDPLInfo()">PDPL Compliance</a></li>
+                        <li><a href="#" onclick="showDisclaimers()">Disclaimers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:support@befrank.com">support@befrank.com</a></li>
+                        <li><a href="tel:+971800723726">+971 800 723726</a></li>
+                        <li><a href="#">Dubai, UAE</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="legal-footer">
+                <p><strong>Educational Tool Only:</strong> BeFrank is provided solely as an educational and informational platform. BeFrank does not constitute, and shall not be construed as, a financial advisor, banking institution, credit bureau, or regulated financial service provider.</p>
+                <p style="margin-top: 1rem;">
+                    <strong>Key Terms:</strong><br>
+                    1. <strong>Bill Optimization:</strong> Bill reductions, where applicable, are provided directly by participating telecom or utility partners. The platform does not process payments, hold funds, or apply bill credits.<br>
+                    2. <strong>PDPL Compliance:</strong> You may access, correct, or request deletion of your personal data at any time. Personal data is retained for a maximum period of 24 months in accordance with UAE Personal Data Protection Law.<br>
+                    3. <strong>Not a Credit Score:</strong> This indicator is for educational purposes only and is broadly informed by credit assessment practices in the UAE. It is not used for loan applications. The Emirates Credit Bureau (ECB) is the official credit authority in the UAE.
+                </p>
+                <p style="margin-top: 1rem;">© 2024 BeFrank. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Onboarding Modal -->
+    <div class="onboarding-modal" id="onboardingModal">
+        <div class="onboarding-container">
+            <div class="onboarding-header">
+                <h2>Welcome to BeFrank!</h2>
+                <p>Let's set up your financial companion with explicit consent</p>
+            </div>
+
+            <div class="onboarding-steps">
+                <!-- Step 1: Welcome -->
+                <div class="onboarding-step active" id="step1">
+                    <h3 class="step-title"><i class="fas fa-hand-wave"></i> Marhaba! Welcome to BeFrank</h3>
+                    <p>We're excited to help you manage your finances. Before we start, we need your explicit consent for data processing as required by UAE PDPL.</p>
+                    <div class="legal-warning">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <div>
+                            <strong>Important:</strong> BeFrank is an educational tool. We are not a financial advisor, bank, or credit bureau. All features are for informational purposes only.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Data Collection Consent -->
+                <div class="onboarding-step" id="step2">
+                    <h3 class="step-title"><i class="fas fa-database"></i> Data Collection Consent</h3>
+                    <div class="consent-box">
+                        <div class="consent-item">
+                            <div class="consent-checkbox">
+                                <input type="checkbox" id="consent1" required>
+                                <div>
+                                    <label class="consent-label" for="consent1">Personal Spending Data</label>
+                                    <div class="consent-details">
+                                        I consent to BeFrank processing my detailed personal spending data for expense tracking and categorization purposes.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="consent-item">
+                            <div class="consent-checkbox">
+                                <input type="checkbox" id="consent2">
+                                <div>
+                                    <label class="consent-label" for="consent2">Bank Account Data (Optional)</label>
+                                    <div class="consent-details">
+                                        I optionally consent to secure, read-only access to my bank account data through UAE-approved aggregators for automatic expense tracking.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="consent-item">
+                            <div class="consent-checkbox">
+                                <input type="checkbox" id="consent3">
+                                <div>
+                                    <label class="consent-label" for="consent3">Academic & Telecom Data (Optional)</label>
+                                    <div class="consent-details">
+                                        I optionally consent to use my academic performance and telecom payment history for educational financial readiness indicators.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="legal-warning">
+                        <i class="fas fa-shield-alt"></i>
+                        <div>
+                            <strong>Your Rights:</strong> You may access, correct, or request deletion of your personal data at any time. Personal data will be retained for a maximum period of 24 months unless otherwise required by law. No personal data will be shared with third parties without your explicit and separate consent.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3: Plan Selection -->
+                <div class="onboarding-step" id="step3">
+                    <h3 class="step-title"><i class="fas fa-crown"></i> Choose Your Plan</h3>
+                    <p>Select the plan that best fits your financial goals. All plans include weekly spending insights!</p>
+                    
+                    <div class="plan-selection">
+                        <div class="plan-option" data-plan="free">
+                            <div class="plan-header">
+                                <h4>Just Frank</h4>
+                                <div class="plan-price">Free</div>
+                            </div>
+                            <ul class="plan-features">
+                                <li><i class="fas fa-check"></i> Basic Budgeting</li>
+                                <li><i class="fas fa-check"></i> Financial Dictionary</li>
+                                <li><i class="fas fa-check"></i> Weekly Insights</li>
+                                <li><i class="fas fa-check"></i> Bill Reminders</li>
+                            </ul>
+                            <button class="plan-select-btn" onclick="selectPlan('free')">Select Free Plan</button>
+                        </div>
+                        
+                        <div class="plan-option featured" data-plan="frank-plus">
+                            <div class="popular-badge">Most Popular</div>
+                            <div class="plan-header">
+                                <h4>Frank+</h4>
+                                <div class="plan-price">AED 19<span>/month</span></div>
+                            </div>
+                            <ul class="plan-features">
+                                <li><i class="fas fa-check"></i> All Free Features</li>
+                                <li><i class="fas fa-check"></i> AI Assistant</li>
+                                <li><i class="fas fa-check"></i> Credit Scoring</li>
+                                <li><i class="fas fa-check"></i> Subscription Stalker</li>
+                                <li><i class="fas fa-check"></i> 7-Day Free Trial</li>
+                            </ul>
+                            <button class="plan-select-btn primary" onclick="selectPlan('frank-plus')">Start Free Trial</button>
+                        </div>
+                        
+                        <div class="plan-option" data-plan="wealth">
+                            <div class="plan-header">
+                                <h4>Frank Wealth</h4>
+                                <div class="plan-price">AED 29<span>/month</span></div>
+                            </div>
+                            <ul class="plan-features">
+                                <li><i class="fas fa-check"></i> All Frank+ Features</li>
+                                <li><i class="fas fa-check"></i> Scam Training</li>
+                                <li><i class="fas fa-check"></i> Bank Matching</li>
+                                <li><i class="fas fa-check"></i> Debt Planning</li>
+                                <li><i class="fas fa-check"></i> 7-Day Free Trial</li>
+                            </ul>
+                            <button class="plan-select-btn" onclick="selectPlan('wealth')">Start Free Trial</button>
+                        </div>
+                    </div>
+                    
+                    <div class="legal-warning">
+                        <i class="fas fa-info-circle"></i>
+                        <div>
+                            <strong>Note:</strong> You can upgrade or downgrade your plan at any time. All premium plans come with a 7-day free trial.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4: Account Creation -->
+                <div class="onboarding-step" id="step4">
+                    <h3 class="step-title"><i class="fas fa-user-plus"></i> Create Your Account</h3>
+                    <div class="consent-box">
+                        <div style="margin-bottom: 1.5rem;">
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Full Name</label>
+                            <input type="text" id="userNameInput" placeholder="Enter your name" style="width: 100%; padding: 0.8rem; border: 2px solid var(--dune-sand); border-radius: 8px;">
+                        </div>
+                        <div style="margin-bottom: 1.5rem;">
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Email</label>
+                            <input type="email" id="userEmailInput" placeholder="Enter your email" style="width: 100%; padding: 0.8rem; border: 2px solid var(--dune-sand); border-radius: 8px;">
+                        </div>
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Password</label>
+                            <input type="password" id="userPasswordInput" placeholder="Create a password" style="width: 100%; padding: 0.8rem; border: 2px solid var(--dune-sand); border-radius: 8px;">
+                        </div>
+                    </div>
+                    <div class="legal-warning">
+                        <i class="fas fa-lock"></i>
+                        <div>
+                            <strong>Security:</strong> Your data is encrypted and stored securely in compliance with UAE PDPL regulations.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-indicator">
+                    <div class="step-dot active" data-step="1"></div>
+                    <div class="step-dot" data-step="2"></div>
+                    <div class="step-dot" data-step="3"></div>
+                    <div class="step-dot" data-step="4"></div>
+                </div>
+            </div>
+
+            <div class="onboarding-controls">
+                <button class="step-btn" id="prevBtn" onclick="prevStep()" disabled>Previous</button>
+                <button class="step-btn primary" id="nextBtn" onclick="nextStep()">Next</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/data.js"></script>
+    
+    <style>
+        /* Additional CSS for the new features */
+        .insights-banner {
+            background: linear-gradient(135deg, #0066FF 0%, #00CCFF 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 16px;
+            margin: 3rem 0;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .insights-icon {
+            font-size: 3rem;
+        }
+        
+        .insights-content h3 {
+            margin: 0 0 0.5rem 0;
+            color: white;
+        }
+        
+        .insights-content p {
+            margin: 0;
+            opacity: 0.9;
+        }
+        
+        .plan-tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+        
+        .plan-tag.frank-plus {
+            background-color: #FFD700;
+            color: #333;
+        }
+        
+        .plan-tag.wealth {
+            background-color: #0066FF;
+            color: white;
+        }
+        
+        .pricing-description {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .comparison-table {
+            margin-top: 3rem;
+            overflow-x: auto;
+        }
+        
+        .comparison-table table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        
+        .comparison-table th {
+            background-color: #f8f9fa;
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 2px solid #dee2e6;
+        }
+        
+        .comparison-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .comparison-table .green {
+            color: #28a745;
+        }
+        
+        .comparison-table .red {
+            color: #dc3545;
+        }
+        
+        .plan-selection {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .plan-option {
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .plan-option.featured {
+            border-color: #0066FF;
+            position: relative;
+        }
+        
+        .plan-option:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .plan-header {
+            margin-bottom: 1.5rem;
+        }
+        
+        .plan-price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #0066FF;
+        }
+        
+        .plan-price span {
+            font-size: 1rem;
+            color: #666;
+        }
+        
+        .plan-features {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+            text-align: left;
+        }
+        
+        .plan-features li {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .plan-features i {
+            margin-right: 0.5rem;
+            color: #0066FF;
+        }
+        
+        .plan-select-btn {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #0066FF;
+            background: white;
+            color: #0066FF;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .plan-select-btn.primary {
+            background: #0066FF;
+            color: white;
+        }
+        
+        .plan-select-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,102,255,0.2);
+        }
+        
+        .popular-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #0066FF;
+            color: white;
+            padding: 0.25rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+    </style>
+    
+    <script>
+        // Additional JavaScript for plan selection
+        let selectedPlan = 'free';
+        
+        function selectPlan(plan) {
+            selectedPlan = plan;
+            const planOptions = document.querySelectorAll('.plan-option');
+            planOptions.forEach(option => {
+                option.classList.remove('selected');
+            });
+            
+            const selectedOption = document.querySelector(`.plan-option[data-plan="${plan}"]`);
+            selectedOption.classList.add('selected');
+            
+            // Update next button text based on plan
+            const nextBtn = document.getElementById('nextBtn');
+            if (plan === 'free') {
+                nextBtn.textContent = 'Create Account';
+            } else {
+                nextBtn.textContent = 'Continue to Account';
+            }
+        }
+        
+        // Update the onboarding flow to include plan selection
+        let currentStep = 1;
+        
+        function nextStep() {
+            if (currentStep < 4) {
+                document.getElementById(`step${currentStep}`).classList.remove('active');
+                currentStep++;
+                document.getElementById(`step${currentStep}`).classList.add('active');
+                
+                // Update step indicator
+                document.querySelectorAll('.step-dot').forEach((dot, index) => {
+                    if (index + 1 <= currentStep) {
+                        dot.classList.add('active');
+                    } else {
+                        dot.classList.remove('active');
+                    }
+                });
+                
+                // Update buttons
+                const prevBtn = document.getElementById('prevBtn');
+                const nextBtn = document.getElementById('nextBtn');
+                
+                prevBtn.disabled = currentStep === 1;
+                
+                if (currentStep === 4) {
+                    nextBtn.textContent = 'Complete Setup';
+                    nextBtn.onclick = completeOnboarding;
+                } else {
+                    nextBtn.textContent = 'Next';
+                    nextBtn.onclick = nextStep;
+                }
+            }
+        }
+        
+        function prevStep() {
+            if (currentStep > 1) {
+                document.getElementById(`step${currentStep}`).classList.remove('active');
+                currentStep--;
+                document.getElementById(`step${currentStep}`).classList.add('active');
+                
+                // Update step indicator
+                document.querySelectorAll('.step-dot').forEach((dot, index) => {
+                    if (index + 1 <= currentStep) {
+                        dot.classList.add('active');
+                    } else {
+                        dot.classList.remove('active');
+                    }
+                });
+                
+                // Update buttons
+                const prevBtn = document.getElementById('prevBtn');
+                const nextBtn = document.getElementById('nextBtn');
+                
+                prevBtn.disabled = currentStep === 1;
+                nextBtn.textContent = 'Next';
+                nextBtn.onclick = nextStep;
+            }
+        }
+        
+        function completeOnboarding() {
+            const name = document.getElementById('userNameInput').value;
+            const email = document.getElementById('userEmailInput').value;
+            const password = document.getElementById('userPasswordInput').value;
+            
+            // Basic validation
+            if (!name || !email || !password) {
+                alert('Please fill in all fields');
+                return;
+            }
+            
+            // Here you would typically send data to your backend
+            console.log('User signed up:', { name, email, plan: selectedPlan });
+            
+            // Show success message and redirect
+            alert(`Welcome to BeFrank! Your ${selectedPlan === 'free' ? 'free' : 'premium'} account has been created.`);
+            document.getElementById('onboardingModal').style.display = 'none';
+            
+            // In a real app, you would redirect to the dashboard
+            // window.location.href = 'dashboard.html';
+        }
+    </script>
+</body>
+</html>

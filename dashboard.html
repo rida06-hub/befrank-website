@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - BeFrank</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Almarai:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="page active" id="dashboardPage">
+        <header class="main-header">
+            <nav class="nav-container">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon"></div>
+                    <div>
+                        <div class="logo-text">BeFrank</div>
+                        <div class="logo-tagline">Financial Companion</div>
+                    </div>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="dashboard.html" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li><a href="frank-ai.html"><i class="fas fa-robot"></i> Frank AI</a></li>
+                    <li><a href="expenses.html"><i class="fas fa-receipt"></i> Expenses</a></li>
+                    <li><a href="bill-shaving.html"><i class="fas fa-money-bill-wave"></i> Bill Optimization</a></li>
+                    <li><a href="subscriptions.html"><i class="fas fa-search"></i> Subscriptions</a></li>
+                    <li><a href="credit-score.html"><i class="fas fa-chart-line"></i> Readiness</a></li>
+                </ul>
+                <div class="user-menu">
+                    <span class="user-name">User</span>
+                    <div class="user-avatar" onclick="showUserMenu()">U</div>
+                </div>
+            </nav>
+        </header>
+
+        <div class="main-container">
+            <h1 class="page-title">Dashboard</h1>
+            <p class="page-subtitle">Welcome back! Here's your financial overview.</p>
+
+            <div class="legal-banner">
+                <i class="fas fa-exclamation-triangle"></i>
+                <div>
+                    <strong>Educational Tool Only:</strong> BeFrank provides financial awareness only. We are not a financial advisor, bank, or credit bureau.
+                </div>
+            </div>
+
+            <div class="welcome-card">
+                <div class="welcome-header">
+                    <div class="welcome-text">
+                        <h1>Marhaba, <span id="greetingName">Student</span>!</h1>
+                        <p>Your financial journey starts here. Khalas with confusion!</p>
+                    </div>
+                    <div class="card-status status-active">
+                        <i class="fas fa-shield-alt"></i> PDPL Compliant
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <!-- Budgeting Cards (Tab 1) -->
+                <div class="dashboard-card" onclick="window.location.href='expenses.html'">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class="fas fa-chart-pie"></i>
+                            Budget Overview
+                        </h3>
+                        <div class="card-status status-active">Updated</div>
+                    </div>
+                    <p>Track expenses, set limits, and monitor spending patterns</p>
+                    <div class="feature-tags">
+                        <span class="tag">AI Categorization</span>
+                        <span class="tag">Custom Limits</span>
+                    </div>
+                </div>
+
+                <div class="dashboard-card premium-card" onclick="showFeature('bank-sync')">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class="fas fa-exchange-alt"></i>
+                            Bank Sync
+                        </h3>
+                        <div class="card-status status-premium">Premium</div>
+                    </div>
+                    <div class="premium-badge">Premium</div>
+                    <p>Connect accounts for automatic tracking</p>
+                    <div class="feature-tags">
+                        <span class="tag">Secure API</span>
+                        <span class="tag">Real-time</span>
+                    </div>
+                </div>
+
+                <div class="dashboard-card" onclick="showFeature('savings')">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class="fas fa-bullseye"></i>
+                            Saving Goals
+                        </h3>
+                        <div class="card-status status-active">Active</div>
+                    </div>
+                    <p>Set targets with guided assistance</p>
+                    <div class="feature-tags">
+                        <span class="tag">AI Guidance</span>
+                        <span class="tag">Progress Tracking</span>
+                    </div>
+                </div>
+
+                <div class="dashboard-card" onclick="showFeature('bill-reminders')">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class="fas fa-bell"></i>
+                            Bill Reminders
+                        </h3>
+                        <div class="card-status status-active">Set</div>
+                    </div>
+                    <p>Never miss a payment deadline</p>
+                    <div class="feature-tags">
+                        <span class="tag">Notifications</span>
+                        <span class="tag">Auto-track</span>
+                    </div>
+                </div>
+
+                <!-- Student+ Features (Tab 2) -->
+                <div class="dashboard-card" onclick="window.location.href='frank-ai.html'">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class="fas fa-robot"></i>
+                            Frank AI Assistant
+                        </h3>
+                        <div class="card-status status-active">Available</div>
+                    </div>
+                    <p>Ask Frank about any financial term or transaction</p>
+                    <div class="warning-note">
+                        <i class="fas fa-exclamation-circle"></i> AI may miscategorize
+                    </div>
+                </div>
+
+                <div class="dashboard-card premium-card" onclick="showFeature('bill-split')">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class="fas fa-users"></i>
+                            Bill Splitting
+                        </h3>
+                        <div class="card-status status-premium">Student+</div>
+                    </div>
+                    <div class="premium-badge">Premium</div>
+                    <p>Split bills with roommates, track who owes what</p>
+                    <div class="feature-tags">
+                        <span class="tag">Roommate Share</span>
+                        <span class="tag">Real-time Updates</span>
+                    </div>
+                </div>
+
+                <div class="dashboard-card premium-card" onclick="showFeature('card-chooser')">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class="fas fa-credit-card"></i>
+                            Card Chooser
+                        </h3>
+                        <div class="card-status status-premium">Budget+</div>
+                    </div>
+                    <div class="premium-badge">Premium</div>
+                    <p>AI suggests best card for each transaction</p>
+                    <div class="feature-tags">
+                        <span class="tag">Offer Aggregation</span>
+                        <span class="tag">Smart Suggestions</span>
+                    </div>
+                </div>
+
+                <div class="dashboard-card premium-card" onclick="showFeature('debt')">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class="fas fa-hand-holding-usd"></i>
+                            Debt Planning
+                        </h3>
+                        <div class="card-status status-premium">Budget+</div>
+                    </div>
+                    <div class="premium-badge">Premium</div>
+                    <p>Plan debt payoff with Snowball/Avalanche methods</p>
+                    <div class="feature-tags">
+                        <span class="tag">Strategy Planning</span>
+                        <span class="tag">Progress Tracking</span>
+                    </div>
+                </div>
+
+                <!-- Additional Features -->
+                <div class="dashboard-card" onclick="window.location.href='bill-shaving.html'">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class="fas fa-money-bill-wave"></i>
+                            Bill Optimization
+                        </h3>
+                        <div class="card-status status-warning">Partner-led</div>
+                    </div>
+                    <p>Reduce bills by engaging with partner offers</p>
+                    <div class="warning-note">
+                        <i class="fas fa-exclamation-triangle"></i> No direct value transfer
+                    </div>
+                </div>
+
+                <div class="dashboard-card" onclick="window.location.href='subscriptions.html'">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class="fas fa-search"></i>
+                            Subscription Stalker
+                        </h3>
+                        <div class="card-status status-active" id="subscriptionCount">0 Found</div>
+                    </div>
+                    <p>Find and manage forgotten subscriptions</p>
+                    <div class="success-note">
+                        <i class="fas fa-coins"></i> Save money monthly
+                    </div>
+                </div>
+				<!-- Subscription Management Section -->
+<div class="report-section" id="subscriptionManagement">
+    <div class="section-header">
+        <h2><i class="fas fa-crown"></i> Subscription Management</h2>
+        <div class="subscription-badge student" id="currentPlan">Free Plan</div>
+    </div>
+    
+    <div class="subscription-info">
+        <div class="subscription-card">
+            <div class="subscription-header">
+                <h4>Current Plan</h4>
+                <div class="subscription-status active">Active</div>
+            </div>
+            <div class="subscription-details">
+                <div class="plan-name" id="planName">Frank Basic</div>
+                <div class="plan-features">
+                    <div><i class="fas fa-check"></i> Basic Budgeting</div>
+                    <div><i class="fas fa-check"></i> Expense Tracking</div>
+                    <div><i class="fas fa-check"></i> Bill Reminders</div>
+                    <div id="premiumFeature1"><i class="fas fa-lock"></i> Bill Splitting</div>
+                    <div id="premiumFeature2"><i class="fas fa-lock"></i> Card Chooser</div>
+                </div>
+                <div class="plan-actions">
+                    <button class="cta-btn secondary" onclick="showUpgradeOptions()">
+                        <i class="fas fa-rocket"></i> Upgrade Plan
+                    </button>
+                    <button class="cta-btn" onclick="manageSubscription()">
+                        <i class="fas fa-cog"></i> Manage
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="billing-card">
+            <div class="billing-header">
+                <h4>Billing Information</h4>
+                <i class="fas fa-receipt"></i>
+            </div>
+            <div class="billing-details">
+                <div class="billing-row">
+                    <span>Next Billing Date:</span>
+                    <span id="nextBillingDate">-</span>
+                </div>
+                <div class="billing-row">
+                    <span>Payment Method:</span>
+                    <span id="paymentMethod">Not set</span>
+                </div>
+                <div class="billing-row">
+                    <span>Billing History:</span>
+                    <button class="text-btn" onclick="viewBillingHistory()">View</button>
+                </div>
+            </div>
+            <div class="billing-actions">
+                <button class="action-btn" onclick="updatePaymentMethod()">
+                    <i class="fas fa-credit-card"></i> Update Payment
+                </button>
+                <button class="action-btn" onclick="downloadInvoice()">
+                    <i class="fas fa-download"></i> Download Invoice
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+                <div class="dashboard-card" onclick="window.location.href='credit-score.html'">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class="fas fa-chart-line"></i>
+                            Financial Readiness
+                        </h3>
+                        <div class="card-status status-active">7.2/10</div>
+                    </div>
+                    <p>Educational awareness of your financial habits</p>
+                    <div class="warning-note">
+                        <i class="fas fa-balance-scale"></i> Not for loan applications
+                    </div>
+                </div>
+
+                <div class="dashboard-card" onclick="showFeature('scam-training')">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class="fas fa-shield-alt"></i>
+                            Scam Training
+                        </h3>
+                        <div class="card-status status-active">Available</div>
+                    </div>
+                    <p>Learn to recognize financial scams</p>
+                    <div class="warning-note">
+                        <i class="fas fa-graduation-cap"></i> Educational simulations only
+                    </div>
+                </div>
+            </div>
+
+            <!-- Monthly Report Section -->
+            <div class="report-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-chart-bar"></i> Monthly Insights</h2>
+                    <button class="cta-btn secondary" onclick="generateReport()">
+                        <i class="fas fa-download"></i> Download Report
+                    </button>
+                </div>
+                <div class="insights-grid">
+                    <div class="insight-card">
+                        <div class="insight-value" id="monthlySpending">AED 0</div>
+                        <div class="insight-label">Total Spending</div>
+                    </div>
+                    <div class="insight-card">
+                        <div class="insight-value" id="topCategory">-</div>
+                        <div class="insight-label">Top Category</div>
+                    </div>
+                    <div class="insight-card">
+                        <div class="insight-value" id="savingsRate">0%</div>
+                        <div class="insight-label">Savings Rate</div>
+                    </div>
+                    <div class="insight-card">
+                        <div class="insight-value" id="billSavings">AED 0</div>
+                        <div class="insight-label">Bill Savings</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="main-footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>BeFrank</h4>
+                    <p>Your UAE Financial Companion</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="showPDPLInfo()">PDPL Compliance</a></li>
+                        <li><a href="#" onclick="showDisclaimers()">Disclaimers</a></li>
+                        <li><a href="#" onclick="showTerms()">Terms of Use</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="frank-ai.html">Frank AI</a></li>
+                        <li><a href="credit-score.html">Readiness Score</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="legal-footer">
+                <p><strong>Legal Notice:</strong> BeFrank is an educational financial awareness platform. We are not a financial advisor, bank, or credit bureau. All features are for informational purposes only. The Emirates Credit Bureau (ECB) is the official credit authority in the UAE.</p>
+                <p style="margin-top: 1rem;">© 2024 BeFrank. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/data.js"></script>
+</body>
+</html>
