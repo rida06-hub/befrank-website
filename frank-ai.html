@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frank AI - BeFrank</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Almarai:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* FRANK MASCOT STYLES - Added inline to ensure they work */
+        .frank-character-container {
+            background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(248,244,233,0.95) 100%);
+            border-radius: 24px;
+            padding: 2.5rem;
+            box-shadow: 0 15px 40px rgba(93, 83, 73, 0.2);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(228,214,185,0.5);
+            text-align: center;
+            animation: fadeInUp 0.8s ease-out;
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .frank-mascot-container {
+            width: 180px;
+            height: 280px;
+            position: relative;
+            margin: 0 auto 2rem;
+        }
+
+        .frank-mascot {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            animation: floatFrank 6s ease-in-out infinite;
+        }
+
+        @keyframes floatFrank {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(1deg); }
+        }
+
+        /* Frank Body - Thobe */
+        .thobe-container {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 180px;
+            z-index: 2;
+        }
+
+        .thobe {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 160px;
+            
+    background: linear-gradient(180deg, #5D5349 0%, #6B6157 30%, #7A7065 70%, #897F74 100%);
+
+            border-radius: 40px 40px 8px 8px;
+            box-shadow: 
+                inset -3px 0 8px rgba(0,0,0,0.05),
+                inset 3px 0 8px rgba(0,0,0,0.05),
+                0 4px 12px rgba(0,0,0,0.1);
+            z-index: 2;
+        }
+
+        /* Gold trim on thobe */
+        .thobe::before {
+            content: '';
+            position: absolute;
+            top: 30px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, 
+                transparent 10%,
+                #C9A227 30%,
+                #E2C86A 50%,
+                #C9A227 70%,
+                transparent 90%
+            );
+            z-index: 3;
+        }
+
+        /* Frank Head */
+        .head-container {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 80px;
+            z-index: 3;
+        }
+
+        .face {
+            position: absolute;
+            width: 50px;
+            height: 60px;
+            background: linear-gradient(180deg, #C49458 0%, #A87940 100%);
+            border-radius: 40% 40% 45% 45%;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 
+                inset 0 2px 6px rgba(0,0,0,0.1),
+                0 3px 10px rgba(0,0,0,0.15);
+            z-index: 4;
+        }
+
+        /* Eyes */
+        .eyes {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 35px;
+            height: 15px;
+            display: flex;
+            justify-content: space-between;
+            z-index: 5;
+        }
+
+        .eye {
+            width: 14px;
+            height: 14px;
+            background: #FFFFFF;
+            border-radius: 50%;
+            position: relative;
+            box-shadow: inset 0 1px 2px rgba(0,0,0,0.2);
+            animation: blink 4s infinite;
+        }
+
+        .eye::before {
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #1A1A1A;
+            border-radius: 50%;
+            top: 3px;
+            left: 3px;
+        }
+
+        .eye::after {
+            content: '';
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: #FFFFFF;
+            border-radius: 50%;
+            top: 4px;
+            left: 4px;
+        }
+
+        @keyframes blink {
+            0%, 90%, 100% { transform: scaleY(1); }
+            92%, 98% { transform: scaleY(0.1); }
+        }
+
+        /* Smile */
+        .smile {
+            position: absolute;
+            bottom: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 8px;
+            border-bottom: 2px solid #7A5030;
+            border-radius: 0 0 15px 15px;
+            z-index: 5;
+        }
+
+        /* Ghutra (Headwear) */
+        .ghutra {
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 35px;
+            
+   background: linear-gradient(165deg, #C9A227 0%, #E2C86A 100%);
+
+            border-radius: 35px 35px 10px 10px;
+            z-index: 3;
+            box-shadow: 
+                0 2px 6px rgba(0,0,0,0.1),
+                inset 0 1px 4px rgba(255,255,255,0.8);
+        }
+
+        /* Agal (Headband) */
+        .agal {
+            position: absolute;
+            top: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 55px;
+            height: 3px;
+            background: #111111;
+            border-radius: 2px;
+            z-index: 4;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+        }
+
+        /* Arms */
+        .arms-container {
+            position: absolute;
+            top: 120px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 160px;
+            height: 60px;
+            z-index: 1;
+        }
+
+        .arm {
+            position: absolute;
+            width: 12px;
+            height: 60px;
+            background: linear-gradient(180deg, #5D5349 0%, #6B6157 100%);
+            border-radius: 6px;
+            top: 0;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        }
+
+        .arm.left {
+            left: 15px;
+            transform-origin: top center;
+            animation: waveLeft 3s ease-in-out infinite;
+        }
+
+        .arm.right {
+            right: 15px;
+            transform-origin: top center;
+            animation: waveRight 3s ease-in-out infinite 1.5s;
+        }
+
+        @keyframes waveLeft {
+            0%, 100% { transform: rotate(-12deg); }
+            50% { transform: rotate(-2deg); }
+        }
+
+        @keyframes waveRight {
+            0%, 100% { transform: rotate(12deg); }
+            50% { transform: rotate(2deg); }
+        }
+
+        /* Magic effect */
+        .magic-sparkle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: radial-gradient(circle, rgba(42,157,143,0.8) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: floatSparkle 3s linear infinite;
+            z-index: 5;
+        }
+
+        .sparkle-1 {
+            top: 40px;
+            left: 25px;
+            animation-delay: 0s;
+        }
+
+        .sparkle-2 {
+            top: 100px;
+            right: 30px;
+            animation-delay: 1s;
+        }
+
+        .sparkle-3 {
+            bottom: 60px;
+            left: 50px;
+            animation-delay: 2s;
+        }
+
+        @keyframes floatSparkle {
+            0% { transform: translateY(0) scale(1); opacity: 0; }
+            20% { opacity: 1; }
+            80% { opacity: 1; }
+            100% { transform: translateY(-60px) scale(0.5); opacity: 0; }
+        }
+
+        .frank-character-container h3 {
+            font-size: 1.8rem;
+            color: var(--dune-dark);
+            margin-bottom: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .frank-character-container .tagline {
+            color: var(--dune-gold);
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        /* Quick Questions */
+        .frank-quick-questions {
+            margin-top: 2rem;
+            text-align: left;
+            width: 100%;
+        }
+
+        .frank-quick-questions h4 {
+            margin-bottom: 1rem;
+            color: var(--dune-dark);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .question-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .question-list li {
+            margin-bottom: 0.8rem;
+            padding: 0.8rem;
+            background: rgba(42,157,143,0.05);
+            border-radius: 8px;
+            border-left: 3px solid var(--dune-oasis);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 0.9rem;
+        }
+
+        .question-list li:hover {
+            background: rgba(42,157,143,0.1);
+            transform: translateX(5px);
+        }
+
+        .question-list i {
+            color: var(--dune-oasis);
+            font-size: 0.9rem;
+        }
+
+        /* Frank Section Grid */
+        .frank-section {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        /* Chat container adjustments */
+        .chat-container {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 8px 30px rgba(93, 83, 73, 0.1);
+            display: flex;
+            flex-direction: column;
+            height: 600px;
+        }
+
+        /* AI Warning */
+        .ai-warning {
+            background: rgba(52, 152, 219, 0.1);
+            border: 2px solid #3498db;
+            border-radius: 12px;
+            padding: 1rem;
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            margin-top: 2rem;
+        }
+
+        .ai-warning i {
+            color: #3498db;
+            margin-top: 0.2rem;
+            font-size: 1.2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .frank-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .frank-mascot-container {
+                width: 150px;
+                height: 240px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .frank-mascot-container {
+                width: 120px;
+                height: 200px;
+            }
+            
+            .frank-character-container {
+                padding: 1.5rem;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="page active" id="frankAIPage">
+        <header class="main-header">
+            <nav class="nav-container">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon"></div>
+                    <div>
+                        <div class="logo-text">BeFrank</div>
+                        <div class="logo-tagline">Financial Companion</div>
+                    </div>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li><a href="frank-ai.html" class="active"><i class="fas fa-robot"></i> Frank AI</a></li>
+                    <li><a href="expenses.html"><i class="fas fa-receipt"></i> Expenses</a></li>
+                    <li><a href="bill-shaving.html"><i class="fas fa-money-bill-wave"></i> Bill Optimization</a></li>
+                    <li><a href="subscriptions.html"><i class="fas fa-search"></i> Subscriptions</a></li>
+                    <li><a href="credit-score.html"><i class="fas fa-chart-line"></i> Readiness</a></li>
+                    <li><a href="awareness.html"><i class="fas fa-shield-alt"></i> Scam Shield</a></li>
+                </ul>
+                <div class="user-menu">
+                    <span class="user-name">User</span>
+                    <div class="user-avatar" onclick="showUserMenu()">U</div>
+                </div>
+            </nav>
+        </header>
+
+        <div class="main-container">
+            <h1 class="page-title">Frank AI Assistant</h1>
+            <p class="page-subtitle">Your finance genie in a thobe! Ask me anything about money matters.</p>
+
+            <div class="legal-banner">
+                <i class="fas fa-exclamation-triangle"></i>
+                <div>
+                    <strong>AI Classification Notice:</strong> Frank may miscategorize transactions. All suggestions are editable and you have final control. This is for educational awareness only.
+                </div>
+            </div>
+
+            <div class="frank-section">
+                <!-- Frank Character Card (LEFT SIDE) -->
+                <div class="frank-character-container">
+                    <div class="frank-mascot-container">
+                        <div class="frank-mascot">
+                            <!-- Thobe (Body) -->
+                            <div class="thobe-container">
+                                <div class="thobe"></div>
+                            </div>
+                            
+                            <!-- Head -->
+                            <div class="head-container">
+                                <div class="face">
+                                    <div class="eyes">
+                                        <div class="eye left"></div>
+                                        <div class="eye right"></div>
+                                    </div>
+                                    <div class="smile"></div>
+                                </div>
+                                <div class="ghutra"></div>
+                                <div class="agal"></div>
+                            </div>
+                            
+                            <!-- Arms -->
+                            <div class="arms-container">
+                                <div class="arm left"></div>
+                                <div class="arm right"></div>
+                            </div>
+                            
+                            <!-- Magic Sparkles -->
+                            <div class="magic-sparkle sparkle-1"></div>
+                            <div class="magic-sparkle sparkle-2"></div>
+                            <div class="magic-sparkle sparkle-3"></div>
+                        </div>
+                    </div>
+                    
+                    <h3>Frank</h3>
+                    <p class="tagline">Your Finance Genie</p>
+                    <p style="font-size: 0.9rem; color: var(--dune-dark); margin-bottom: 1.5rem; text-align: center;">
+                        I speak Emirati slang and explain financial terms in plain language. Khalas with confusion!
+                    </p>
+                    
+                    <div class="frank-quick-questions">
+                        <h4><i class="fas fa-bolt"></i> Quick Questions</h4>
+                        <ul class="question-list" id="frankSuggestions">
+                            <!-- Suggestions will be loaded here by JavaScript -->
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Chat Container (RIGHT SIDE) -->
+                <div class="chat-container">
+                    <div class="chat-messages" id="frankChatMessages">
+                        <!-- Messages will appear here -->
+                    </div>
+                    <div class="chat-input-area">
+                        <input type="text" class="chat-input" id="frankChatInput" placeholder="Ask Frank anything... (Try: 'What is NSF fee?')" autocomplete="off">
+                        <button class="chat-send" onclick="sendFrankMessage()">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ai-warning">
+                <i class="fas fa-robot"></i>
+                <div>
+                    <strong>Remember:</strong> Frank is an AI assistant for educational purposes only. His advice is based on general financial principles and may not apply to your specific situation. Always consult with a qualified financial advisor for personal advice.
+                </div>
+            </div>
+        </div>
+
+        <footer class="main-footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>BeFrank</h4>
+                    <p>Your UAE Financial Companion</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="showPDPLInfo()">PDPL Compliance</a></li>
+                        <li><a href="#" onclick="showDisclaimers()">Disclaimers</a></li>
+                        <li><a href="#" onclick="showTerms()">Terms of Use</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Help</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="showHowToUse()">How to Use Frank</a></li>
+                        <li><a href="#" onclick="showFAQ()">FAQ</a></li>
+                        <li><a href="#" onclick="showContact()">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="legal-footer">
+                <p><strong>Educational Purpose Only:</strong> Frank AI provides explanations for educational awareness. Not financial advice. AI may miscategorize - you have final control over all decisions.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/frank-ai.js"></script>
+</body>
+</html>
