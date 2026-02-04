@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - BeFrank</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Almarai:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="page active" id="dashboardPage">
+        <header class="main-header">
+            <nav class="nav-container">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon"></div>
+                    <div>
+                        <div class="logo-text">BeFrank</div>
+                        <div class="logo-tagline">Financial Companion</div>
+                    </div>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="dashboard.html" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li><a href="frank-ai.html"><i class="fas fa-robot"></i> Frank AI</a></li>
+                    <li><a href="expenses.html"><i class="fas fa-receipt"></i> Expenses</a></li>
+                    <li><a href="bill-shaving.html"><i class="fas fa-money-bill-wave"></i> Bill Shaving</a></li>
+                    <li><a href="subscriptions.html"><i class="fas fa-search"></i> Subscriptions</a></li>
+                    <li><a href="credit-score.html"><i class="fas fa-chart-line"></i> Readiness</a></li>
+                    <li><a href="awareness.html"><i class="fas fa-shield-alt"></i> Scam Shield</a></li>
+                </ul>
+                <div class="user-menu">
+                    <span class="user-name">User</span>
+                    <div class="user-avatar" onclick="showUserMenu()">U</div>
+                </div>
+            </nav>
+        </header>
+
+        <div class="main-container">
+            <h1 class="page-title">Dashboard</h1>
+            <p class="page-subtitle">Welcome back! Here's your financial overview.</p>
+
+            <div class="legal-banner">
+                <i class="fas fa-exclamation-triangle"></i>
+                <div>
+                    <strong>Educational Tool Only:</strong> BeFrank provides financial awareness only. We are not a financial advisor, bank, or credit bureau.
+                </div>
+            </div>
+
+            <div class="welcome-card">
+                <div class="welcome-header">
+                    <div class="welcome-text">
+                        <h1>Marhaba, <span id="greetingName">Student</span>!</h1>
+                        <p>Your financial journey starts here. Khalas with confusion!</p>
+                    </div>
+                    <div class="card-status status-active" id="planStatus">
+                        <i class="fas fa-crown"></i> Just Frank
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <!-- Just Frank (Free) Features -->
+                <div class="dashboard-card" onclick="window.location.href='expenses.html'">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class="fas fa-chart-pie"></i>
+                            Budget Overview
+                        </h3>
+                        <div class="card-status status-active">Free</div>
+                    </div>
+                    <p>Track expenses, set limits, and monitor spending patterns</p>
+                    <div class="feature-tags">
+                        <span class="tag">Basic</span>
+                    </div>
+                </div>
+
+                <div class="dashboard-card" onclick="window.location.href='frank-ai.html'">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class="fas fa-book"></i>
+                            Finance Dictionary
+                        </h3>
+                        <div class="card-status status-active">Free</div>
+                    </div>
+                    <p>Look up confusing financial terms and transactions</p>
+                    <div class="warning-note">
+                        <i class="fas fa-exclamation-circle"></i> Limited access
+                    </div>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class="fas fa-bell"></i>
+                            Bill Reminders
+                        </h3>
+                        <div class="card-status status-active">Free</div>
+                    </div>
+                    <p>Never miss a payment deadline</p>
+                    <div class="feature-tags">
+                        <span class="tag">Notifications</span>
+                    </div>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class="fas fa-chart-bar"></i>
+                            Weekly Insights
+                        </h3>
+                        <div class="card-status status-active">Free</div>
+                    </div>
+                    <p>Weekly spending reports and patterns</p>
+                    <div class="success-note">
+                        <i class="fas fa-chart-line"></i> All plans include
+                    </div>
+                </div>
+
+                <!-- Frank+ (AED 19/month) Features -->
+                <div class="dashboard-card frank-plus" onclick="checkPremiumAccess('frank-ai')">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class="fas fa-robot"></i>
+                            Frank AI Assistant
+                        </h3>
+                        <div class="card-status status-premium">Frank+</div>
+                    </div>
+                    <div class="premium-badge">AED 19/month</div>
+                    <p>Full AI translator for any confusing transaction</p>
+                    <div class="feature-tags">
+                        <span class="tag">AI Powered</span>
+                        <span class="tag">Instant Help</span>
+                    </div>
+                </div>
+
+                <div class="dashboard-card frank-plus" onclick="checkPremiumAccess('credit-score')">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class="fas fa-chart-line"></i>
+                            Credit Scoring
+                        </h3>
+                        <div class="card-status status-premium">Frank+</div>
+                    </div>
+                    <div class="premium-badge">AED 19/month</div>
+                    <p>1-10 scale based on telecom, academic, app data</p>
+                    <div class="warning-note">
+                        <i class="fas fa-balance-scale"></i> Educational only
+                    </div>
+                </div>
+
+                <div class="dashboard-card frank-plus" onclick="window.location.href='subscriptions.html'">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class="fas fa-search"></i>
+                            Subscription Stalker
+                        </h3>
+                        <div class="card-status status-premium">Frank+</div>
+                    </div>
+                    <div class="premium-badge">AED 19/month</div>
+                    <p>Find and cancel forgotten subscriptions</p>
+                    <div class="success-note">
+                        <i class="fas fa-coins"></i> Save money
+                    </div>
+                </div>
+
+                <div class="dashboard-card frank-plus" onclick="window.location.href='bill-shaving.html'">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class="fas fa-money-bill-wave"></i>
+                            Bill Shaving
+                        </h3>
+                        <div class="card-status status-premium">Frank+</div>
+                    </div>
+                    <div class="premium-badge">AED 19/month</div>
+                    <p>Watch ads to reduce bills through partners</p>
+                    <div class="warning-note">
+                        <i class="fas fa-handshake"></i> Partner-led only
+                    </div>
+                </div>
+
+                <!-- Frank Wealth (AED 29/month) Features -->
+                <div class="dashboard-card wealth" onclick="checkPremiumAccess('scam-training')">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class="fas fa-shield-alt"></i>
+                            Scam Training
+                        </h3>
+                        <div class="card-status status-premium">Wealth</div>
+                    </div>
+                    <div class="premium-badge">AED 29/month</div>
+                    <p>Hyper-realistic scam simulations and training</p>
+                    <div class="feature-tags">
+                        <span class="tag">Safety</span>
+                        <span class="tag">Training</span>
+                    </div>
+                </div>
+
+                <div class="dashboard-card wealth" onclick="checkPremiumAccess('bank-matching')">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class="fas fa-university"></i>
+                            Bank Matching
+                        </h3>
+                        <div class="card-status status-premium">Wealth</div>
+                    </div>
+                    <div class="premium-badge">AED 29/month</div>
+                    <p>Connect with lenders who'll actually approve you</p>
+                    <div class="success-note">
+                        <i class="fas fa-check-circle"></i> Smart matching
+                    </div>
+                </div>
+
+                <div class="dashboard-card wealth" onclick="checkPremiumAccess('debt-planning')">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class="fas fa-hand-holding-usd"></i>
+                            Debt Planning
+                        </h3>
+                        <div class="card-status status-premium">Wealth</div>
+                    </div>
+                    <div class="premium-badge">AED 29/month</div>
+                    <p>Plan debt payoff with Snowball/Avalanche methods</p>
+                    <div class="feature-tags">
+                        <span class="tag">Strategy</span>
+                        <span class="tag">Planning</span>
+                    </div>
+                </div>
+
+                <div class="dashboard-card wealth" onclick="checkPremiumAccess('card-chooser')">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class="fas fa-credit-card"></i>
+                            Card Chooser
+                        </h3>
+                        <div class="card-status status-premium">Wealth</div>
+                    </div>
+                    <div class="premium-badge">AED 29/month</div>
+                    <p>AI suggests best card for each purchase</p>
+                    <div class="feature-tags">
+                        <span class="tag">Smart</span>
+                        <span class="tag">Offers</span>
+                    </div>
+                </div>
+
+                <!-- Additional Features -->
+                <div class="dashboard-card" onclick="showFeature('bank-sync')">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class="fas fa-exchange-alt"></i>
+                            Bank Sync
+                        </h3>
+                        <div class="card-status status-active">Frank+</div>
+                    </div>
+                    <p>Connect accounts for automatic tracking</p>
+                    <div class="feature-tags">
+                        <span class="tag">Auto-categorization</span>
+                    </div>
+                </div>
+
+                <div class="dashboard-card" onclick="showFeature('bill-split')">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class="fas fa-users"></i>
+                            Bill Splitting
+                        </h3>
+                        <div class="card-status status-active">Wealth</div>
+                    </div>
+                    <p>Split bills with roommates</p>
+                    <div class="feature-tags">
+                        <span class="tag">Roommate</span>
+                        <span class="tag">Shared</span>
+                    </div>
+                </div>
+
+                <div class="dashboard-card" onclick="showFeature('savings-goals')">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class="fas fa-bullseye"></i>
+                            Savings Goals
+                        </h3>
+                        <div class="card-status status-active">Frank+</div>
+                    </div>
+                    <p>Set targets with AI guidance</p>
+                    <div class="feature-tags">
+                        <span class="tag">Goals</span>
+                        <span class="tag">AI Guidance</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Monthly Report Section -->
+            <div class="report-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-chart-bar"></i> Weekly Insights</h2>
+                    <button class="cta-btn secondary" onclick="generateReport()">
+                        <i class="fas fa-download"></i> Download Report
+                    </button>
+                </div>
+                <div class="insights-grid">
+                    <div class="insight-card">
+                        <div class="insight-value" id="monthlySpending">AED 0</div>
+                        <div class="insight-label">Total Spending</div>
+                    </div>
+                    <div class="insight-card">
+                        <div class="insight-value" id="topCategory">-</div>
+                        <div class="insight-label">Top Category</div>
+                    </div>
+                    <div class="insight-card">
+                        <div class="insight-value" id="savingsRate">0%</div>
+                        <div class="insight-label">Savings Rate</div>
+                    </div>
+                    <div class="insight-card">
+                        <div class="insight-value" id="subscriptionSavings">AED 0</div>
+                        <div class="insight-label">Potential Savings</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Subscription Management -->
+            <div class="report-section" id="subscriptionManagement">
+                <div class="section-header">
+                    <h2><i class="fas fa-crown"></i> Your Plan</h2>
+                    <div class="subscription-badge free" id="currentPlan">Just Frank</div>
+                </div>
+                
+                <div class="subscription-info">
+                    <div class="subscription-card">
+                        <div class="subscription-header">
+                            <h4>Current Features</h4>
+                            <div class="subscription-status active">Active</div>
+                        </div>
+                        <div class="subscription-details">
+                            <div class="plan-name" id="planName">Just Frank</div>
+                            <div class="plan-features">
+                                <div><i class="fas fa-check"></i> Basic Budgeting</div>
+                                <div><i class="fas fa-check"></i> Finance Dictionary</div>
+                                <div><i class="fas fa-check"></i> Bill Reminders</div>
+                                <div><i class="fas fa-check"></i> Weekly Insights</div>
+                                <div id="frankPlusFeature1"><i class="fas fa-lock"></i> Credit Scoring</div>
+                                <div id="frankPlusFeature2"><i class="fas fa-lock"></i> AI Translator</div>
+                                <div id="wealthFeature1"><i class="fas fa-lock"></i> Scam Training</div>
+                                <div id="wealthFeature2"><i class="fas fa-lock"></i> Bank Matching</div>
+                            </div>
+                            <div class="plan-actions">
+                                <button class="cta-btn primary" onclick="showUpgradeOptions()">
+                                    <i class="fas fa-rocket"></i> Upgrade Plan
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="billing-card">
+                        <div class="billing-header">
+                            <h4>Plan Details</h4>
+                            <i class="fas fa-info-circle"></i>
+                        </div>
+                        <div class="billing-details">
+                            <div class="billing-row">
+                                <span>Status:</span>
+                                <span id="planStatusText">Free</span>
+                            </div>
+                            <div class="billing-row">
+                                <span>Price:</span>
+                                <span id="planPrice">Free</span>
+                            </div>
+                            <div class="billing-row">
+                                <span>Next Upgrade:</span>
+                                <button class="text-btn" onclick="showUpgradeOptions()">View Options</button>
+                            </div>
+                        </div>
+                        <div class="billing-actions">
+                            <button class="action-btn" onclick="manageSubscription()">
+                                <i class="fas fa-cog"></i> Manage Plan
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="main-footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>BeFrank</h4>
+                    <p>Your UAE Financial Companion</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="showPDPLInfo()">PDPL Compliance</a></li>
+                        <li><a href="#" onclick="showDisclaimers()">Disclaimers</a></li>
+                        <li><a href="#" onclick="showTerms()">Terms of Use</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="frank-ai.html">Frank AI</a></li>
+                        <li><a href="credit-score.html">Readiness Score</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="legal-footer">
+                <p><strong>Legal Notice:</strong> BeFrank is an educational financial awareness platform. We are not a financial advisor, bank, or credit bureau. All features are for informational purposes only. The Emirates Credit Bureau (ECB) is the official credit authority in the UAE.</p>
+                <p style="margin-top: 1rem;">© 2024 BeFrank. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Check user's plan and update UI
+        function updatePlanUI() {
+            const user = JSON.parse(localStorage.getItem('beFrankUser')) || { plan: 'free' };
+            const plan = user.plan || 'free';
+            
+            // Update plan status
+            document.getElementById('planStatus').innerHTML = `<i class="fas fa-crown"></i> ${getPlanName(plan)}`;
+            document.getElementById('currentPlan').textContent = getPlanName(plan);
+            document.getElementById('planName').textContent = getPlanName(plan);
+            document.getElementById('planStatusText').textContent = plan === 'free' ? 'Free' : 'Premium';
+            document.getElementById('planPrice').textContent = plan === 'free' ? 'Free' : 
+                plan === 'frank-plus' ? 'AED 19/month' : 'AED 29/month';
+            
+            // Update feature locks
+            updateFeatureLocks(plan);
+        }
+        
+        function getPlanName(plan) {
+            switch(plan) {
+                case 'frank-plus': return 'Frank+';
+                case 'wealth': return 'Frank Wealth';
+                default: return 'Just Frank';
+            }
+        }
+        
+        function updateFeatureLocks(plan) {
+            const frankPlusFeatures = ['frankPlusFeature1', 'frankPlusFeature2'];
+            const wealthFeatures = ['wealthFeature1', 'wealthFeature2'];
+            
+            // Frank+ features
+            frankPlusFeatures.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) {
+                    if (plan === 'frank-plus' || plan === 'wealth') {
+                        el.innerHTML = '<i class="fas fa-check"></i> ' + el.textContent.replace('🔒 ', '');
+                    } else {
+                        el.innerHTML = '<i class="fas fa-lock"></i> ' + el.textContent.replace('✅ ', '');
+                    }
+                }
+            });
+            
+            // Wealth features
+            wealthFeatures.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) {
+                    if (plan === 'wealth') {
+                        el.innerHTML = '<i class="fas fa-check"></i> ' + el.textContent.replace('🔒 ', '');
+                    } else {
+                        el.innerHTML = '<i class="fas fa-lock"></i> ' + el.textContent.replace('✅ ', '');
+                    }
+                }
+            });
+        }
+        
+        function checkPremiumAccess(feature) {
+            const user = JSON.parse(localStorage.getItem('beFrankUser')) || { plan: 'free' };
+            const plan = user.plan || 'free';
+            
+            const featurePlans = {
+                'frank-ai': 'frank-plus',
+                'credit-score': 'frank-plus',
+                'scam-training': 'wealth',
+                'bank-matching': 'wealth',
+                'debt-planning': 'wealth',
+                'card-chooser': 'wealth'
+            };
+            
+            const requiredPlan = featurePlans[feature];
+            
+            if (!requiredPlan || plan === requiredPlan || 
+                (requiredPlan === 'frank-plus' && plan === 'wealth')) {
+                return true;
+            }
+            
+            // Show upgrade modal
+            showUpgradeModal(feature, requiredPlan);
+            return false;
+        }
+        
+        function showUpgradeModal(feature, requiredPlan) {
+            const featureNames = {
+                'frank-ai': 'Frank AI Assistant',
+                'credit-score': 'Credit Scoring',
+                'scam-training': 'Scam Training',
+                'bank-matching': 'Smart Bank Matching',
+                'debt-planning': 'Debt Planning',
+                'card-chooser': 'Card Chooser'
+            };
+            
+            const modal = document.createElement('div');
+            modal.className = 'upgrade-modal active';
+            modal.innerHTML = `
+                <div class="upgrade-container">
+                    <div class="upgrade-header">
+                        <h3><i class="fas fa-lock"></i> Upgrade Required</h3>
+                        <button class="close-upgrade" onclick="this.parentElement.parentElement.remove()">&times;</button>
+                    </div>
+                    <div class="upgrade-content">
+                        <div class="upgrade-icon">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <h4>${featureNames[feature]}</h4>
+                        <p>This feature requires ${requiredPlan === 'frank-plus' ? 'Frank+' : 'Frank Wealth'} plan.</p>
+                        
+                        <div class="upgrade-options">
+                            ${requiredPlan === 'frank-plus' ? `
+                            <div class="upgrade-option">
+                                <h5>Frank+</h5>
+                                <div class="price">AED 19<span>/month</span></div>
+                                <ul>
+                                    <li><i class="fas fa-check"></i> Credit Scoring (1-10 scale)</li>
+                                    <li><i class="fas fa-check"></i> AI Translator</li>
+                                    <li><i class="fas fa-check"></i> Subscription Stalker</li>
+                                    <li><i class="fas fa-check"></i> Bill Shaving Ads</li>
+                                </ul>
+                                <button class="upgrade-btn" onclick="upgradePlan('frank-plus')">
+                                    Upgrade to Frank+
+                                </button>
+                            </div>
+                            ` : ''}
+                            
+                            <div class="upgrade-option ${requiredPlan === 'wealth' ? 'featured' : ''}">
+                                ${requiredPlan === 'wealth' ? '<div class="popular-tag">Recommended</div>' : ''}
+                                <h5>Frank Wealth</h5>
+                                <div class="price">AED 29<span>/month</span></div>
+                                <ul>
+                                    <li><i class="fas fa-check"></i> All Frank+ Features</li>
+                                    <li><i class="fas fa-check"></i> ${featureNames[feature]}</li>
+                                    <li><i class="fas fa-check"></i> Scam Training</li>
+                                    <li><i class="fas fa-check"></i> Smart Bank Matching</li>
+                                </ul>
+                                <button class="upgrade-btn primary" onclick="upgradePlan('wealth')">
+                                    Get Frank Wealth
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+        }
+        
+        function showUpgradeOptions() {
+            const modal = document.createElement('div');
+            modal.className = 'upgrade-modal active';
+            modal.innerHTML = `
+                <div class="upgrade-container">
+                    <div class="upgrade-header">
+                        <h3><i class="fas fa-crown"></i> Upgrade Your Plan</h3>
+                        <button class="close-upgrade" onclick="this.parentElement.parentElement.remove()">&times;</button>
+                    </div>
+                    <div class="upgrade-content">
+                        <div class="upgrade-options">
+                            <div class="upgrade-option">
+                                <h5>Frank+</h5>
+                                <div class="price">AED 19<span>/month</span></div>
+                                <ul>
+                                    <li><i class="fas fa-check"></i> Credit Scoring (1-10 scale)</li>
+                                    <li><i class="fas fa-check"></i> AI Translator</li>
+                                    <li><i class="fas fa-check"></i> Subscription Stalker</li>
+                                    <li><i class="fas fa-check"></i> Bill Shaving Ads</li>
+                                    <li><i class="fas fa-check"></i> Bank Sync</li>
+                                </ul>
+                                <button class="upgrade-btn" onclick="upgradePlan('frank-plus')">
+                                    Upgrade to Frank+
+                                </button>
+                            </div>
+                            
+                            <div class="upgrade-option featured">
+                                <div class="popular-tag">Most Popular</div>
+                                <h5>Frank Wealth</h5>
+                                <div class="price">AED 29<span>/month</span></div>
+                                <ul>
+                                    <li><i class="fas fa-check"></i> All Frank+ Features</li>
+                                    <li><i class="fas fa-check"></i> Scam Training</li>
+                                    <li><i class="fas fa-check"></i> Smart Bank Matching</li>
+                                    <li><i class="fas fa-check"></i> Debt Planning</li>
+                                    <li><i class="fas fa-check"></i> Card Chooser</li>
+                                </ul>
+                                <button class="upgrade-btn primary" onclick="upgradePlan('wealth')">
+                                    Get Frank Wealth
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="trial-offer">
+                            <i class="fas fa-gift"></i>
+                            <span>All premium plans include 7-day free trial</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+        }
+        
+        function upgradePlan(plan) {
+            const user = JSON.parse(localStorage.getItem('beFrankUser')) || {};
+            user.plan = plan;
+            localStorage.setItem('beFrankUser', JSON.stringify(user));
+            
+            // Remove modal
+            document.querySelector('.upgrade-modal')?.remove();
+            
+            // Show success
+            showAlert(`Congratulations! You've upgraded to ${getPlanName(plan)}. Enjoy your 7-day free trial!`, 'success');
+            
+            // Update UI
+            setTimeout(() => {
+                updatePlanUI();
+                location.reload();
+            }, 1500);
+        }
+        
+        function manageSubscription() {
+            const user = JSON.parse(localStorage.getItem('beFrankUser')) || { plan: 'free' };
+            if (user.plan === 'free') {
+                showUpgradeOptions();
+            } else {
+                alert(`Current Plan: ${getPlanName(user.plan)}\n\nManage your subscription:\n\n1. Change plan\n2. Update payment method\n3. View billing history\n4. Cancel subscription`);
+            }
+        }
+        
+        function showFeature(feature) {
+            alert(`Feature: ${feature}\n\nThis feature is included in ${feature === 'bank-sync' || feature === 'savings-goals' ? 'Frank+' : 'Frank Wealth'} plan.`);
+        }
+        
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', function() {
+            updatePlanUI();
+            loadDashboardData();
+        });
+    </script>
+</body>
+</html>
