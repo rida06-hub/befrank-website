@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill Optimization - BeFrank</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Almarai:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="page active" id="billShavingPage">
+        <header class="main-header">
+            <nav class="nav-container">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon"></div>
+                    <div>
+                        <div class="logo-text">BeFrank</div>
+                        <div class="logo-tagline">Financial Companion</div>
+                    </div>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li><a href="frank-ai.html"><i class="fas fa-robot"></i> Frank AI</a></li>
+                    <li><a href="expenses.html"><i class="fas fa-receipt"></i> Expenses</a></li>
+                    <li><a href="bill-shaving.html" class="active"><i class="fas fa-money-bill-wave"></i> Bill Optimization</a></li>
+                    <li><a href="subscriptions.html"><i class="fas fa-search"></i> Subscriptions</a></li>
+                    <li><a href="credit-score.html"><i class="fas fa-chart-line"></i> Readiness</a></li>
+					<li><a href="awareness.html"><i class="fas fa-shield-alt"></i> Scam Shield</a></li>
+                </ul>
+                <div class="user-menu">
+                    <span class="user-name">User</span>
+                    <div class="user-avatar" onclick="showUserMenu()">U</div>
+                </div>
+            </nav>
+        </header>
+
+        <div class="main-container">
+            <h1 class="page-title">Bill Shaving</h1>
+            <p class="page-subtitle">Reduce your bills by engaging with partner offers</p>
+
+            <div class="legal-banner">
+                <i class="fas fa-handshake"></i>
+                <div>
+                    <strong>Partner-led Only:</strong> Bill reductions are applied by telecom/utility partners only. We never hold money or apply credits directly.
+                </div>
+            </div>
+
+            <div class="bill-shaving-container">
+                <div class="bill-selection">
+                    <h3 style="margin-bottom: 1.5rem;">Select Your Bill</h3>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Service Provider</label>
+                        <select class="form-select" id="billProvider">
+                            <option value="">Select Provider</option>
+                            <option value="etisalat">Etisalat</option>
+                            <option value="du">Du</option>
+                            <option value="dewa">DEWA (Electricity)</option>
+                            <option value="dewa_water">DEWA (Water)</option>
+                            <option value="empower">Empower (Cooling)</option>
+                            <option value="salik">Salik (Toll)</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Bill Amount (AED)</label>
+                        <input type="number" class="form-input" id="billAmountInput" placeholder="Enter your bill amount" min="0" step="0.01">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Due Date</label>
+                        <input type="date" class="form-input" id="billDueDate">
+                    </div>
+
+                    <button class="form-btn" onclick="loadBillShavingOptions()">
+                        <i class="fas fa-search"></i> Find Reduction Options
+                    </button>
+
+                    <div style="margin-top: 1.5rem; padding: 1rem; background: var(--dune-light); border-radius: 8px;">
+                        <h4 style="margin-bottom: 0.5rem; color: var(--dune-warning);">
+                            <i class="fas fa-exclamation-triangle"></i> How It Works
+                        </h4>
+                        <p style="font-size: 0.9rem;">
+                            1. Select your bill provider<br>
+                            2. View available reduction options<br>
+                            3. Complete partner requirements<br>
+                            4. Partner applies credit to your bill<br>
+                            5. We never handle money directly
+                        </p>
+                    </div>
+
+                    <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(42, 157, 143, 0.1); border-radius: 8px; border: 1px solid var(--dune-oasis);">
+                        <h4 style="margin-bottom: 0.5rem; color: var(--dune-oasis);">
+                            <i class="fas fa-shield-alt"></i> Legal Structure
+                        </h4>
+                        <p style="font-size: 0.9rem;">
+                            • Partners are UAE-licensed entities<br>
+                            • Credits applied directly by partners<br>
+                            • No money handled by BeFrank<br>
+                            • Check next billing cycle for credits
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bill-display" id="billDisplaySection" style="display: none;">
+                    <h3 id="billProviderName">Bill Details</h3>
+                    <div class="bill-amount" id="displayBillAmount">AED 0</div>
+                    
+                    <div style="text-align: center; margin-bottom: 1rem;">
+                        <div style="color: var(--dune-dark); opacity: 0.8;">Due Date: <span id="displayDueDate">-</span></div>
+                    </div>
+
+                    <h4 style="margin-bottom: 1rem;">Available Reductions</h4>
+                    <div class="shaving-options" id="shavingOptions">
+                        <!-- Options will be loaded here -->
+                    </div>
+
+                    <div style="margin-top: 2rem; padding: 1rem; background: rgba(42, 157, 143, 0.1); border-radius: 8px;">
+                        <h4 style="margin-bottom: 0.5rem; color: var(--dune-oasis);">
+                            <i class="fas fa-info-circle"></i> Important Notes
+                        </h4>
+                        <ul style="font-size: 0.9rem; padding-left: 1.2rem;">
+                            <li>Credits applied by partners only</li>
+                            <li>No money handled by BeFrank</li>
+                            <li>Check next billing cycle for credits</li>
+                            <li>Partner terms and conditions apply</li>
+                            <li>Allow 3-5 business days for processing</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bill-display" id="noBillSelected" style="text-align: center; padding: 4rem;">
+                    <i class="fas fa-file-invoice-dollar" style="font-size: 4rem; color: var(--dune-sand); margin-bottom: 1.5rem;"></i>
+                    <h3>No Bill Selected</h3>
+                    <p style="color: var(--dune-dark); opacity: 0.8; margin-top: 0.5rem;">
+                        Select a bill provider and amount to see reduction options
+                    </p>
+                </div>
+            </div>
+
+            <!-- Partner Information -->
+            <div class="report-section" style="margin-top: 2rem;">
+                <div class="section-header">
+                    <h2><i class="fas fa-handshake"></i> Our Partners</h2>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+                    <div style="background: white; padding: 1.5rem; border-radius: 16px; text-align: center; box-shadow: 0 4px 12px var(--shadow-light);">
+                        <i class="fas fa-mobile-alt" style="font-size: 2rem; color: var(--dune-oasis); margin-bottom: 1rem;"></i>
+                        <h4>Telecom Partners</h4>
+                        <p style="font-size: 0.9rem; color: var(--dune-dark); opacity: 0.8;">Etisalat, Du authorized partners</p>
+                    </div>
+                    <div style="background: white; padding: 1.5rem; border-radius: 16px; text-align: center; box-shadow: 0 4px 12px var(--shadow-light);">
+                        <i class="fas fa-bolt" style="font-size: 2rem; color: var(--dune-oasis); margin-bottom: 1rem;"></i>
+                        <h4>Utility Partners</h4>
+                        <p style="font-size: 0.9rem; color: var(--dune-dark); opacity: 0.8;">DEWA, Empower authorized partners</p>
+                    </div>
+                    <div style="background: white; padding: 1.5rem; border-radius: 16px; text-align: center; box-shadow: 0 4px 12px var(--shadow-light);">
+                        <i class="fas fa-shield-alt" style="font-size: 2rem; color: var(--dune-oasis); margin-bottom: 1rem;"></i>
+                        <h4>UAE Licensed</h4>
+                        <p style="font-size: 0.9rem; color: var(--dune-dark); opacity: 0.8;">All partners fully licensed in UAE</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="main-footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>BeFrank</h4>
+                    <p>Your UAE Financial Companion</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="showPartnerAgreements()">Partner Agreements</a></li>
+                        <li><a href="#" onclick="showTerms()">Terms of Use</a></li>
+                        <li><a href="#" onclick="showDisclaimers()">Disclaimers</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="legal-footer">
+                <p><strong>Legal Structure:</strong> Bill shaving is partner-led only. Partners apply credits directly to bills. BeFrank does not hold user balances, transfer money, or execute payments. This is a marketing platform, not a payment service.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
