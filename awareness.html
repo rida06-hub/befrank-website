@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scam Shield - BeFrank</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Almarai:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="page active" id="scamAwarenessPage">
+        <header class="main-header">
+            <nav class="nav-container">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon"></div>
+                    <div>
+                        <div class="logo-text">BeFrank</div>
+                        <div class="logo-tagline">Financial Companion</div>
+                    </div>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li><a href="frank-ai.html"><i class="fas fa-robot"></i> Frank AI</a></li>
+                    <li><a href="expenses.html"><i class="fas fa-receipt"></i> Expenses</a></li>
+                    <li><a href="bill-shaving.html"><i class="fas fa-money-bill-wave"></i> Bill Optimization</a></li>
+                    <li><a href="subscriptions.html"><i class="fas fa-search"></i> Subscriptions</a></li>
+                    <li><a href="credit-score.html"><i class="fas fa-chart-line"></i> Readiness</a></li>
+                    <li><a href="scam-awareness.html" class="active"><i class="fas fa-shield-alt"></i> Scam Shield</a></li>
+                </ul>
+                <div class="user-menu">
+                    <span class="user-name">User</span>
+                    <div class="user-avatar" onclick="showUserMenu()">U</div>
+                </div>
+            </nav>
+        </header>
+
+        <div class="main-container">
+            <div class="premium-header">
+                <div class="premium-badge-large">
+                    <i class="fas fa-crown"></i> PREMIUM
+                </div>
+                <h1 class="page-title">Scam Shield Training</h1>
+                <p class="page-subtitle">Hyper-realistic simulations to recognize financial threats</p>
+            </div>
+
+            <!-- Premium Feature Lock -->
+            <div class="premium-lock-card">
+                <div class="lock-icon">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <h3>Premium Feature Unlocked</h3>
+                <p>Access hyper-realistic scam simulations for UAE students</p>
+                <div class="premium-features">
+                    <div class="premium-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Fake phishing SMS simulations</span>
+                    </div>
+                    <div class="premium-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Fraud call recordings</span>
+                    </div>
+                    <div class="premium-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Job scam scenarios</span>
+                    </div>
+                    <div class="premium-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Real-time threat analysis</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Simulation Cards -->
+            <div class="simulation-cards">
+                <div class="simulation-card active" onclick="startSimulation('phishing')">
+                    <div class="simulation-icon">
+                        <i class="fas fa-sms"></i>
+                    </div>
+                    <h4>Phishing SMS</h4>
+                    <p>Fake bank & government messages</p>
+                    <div class="difficulty-badge easy">Beginner</div>
+                </div>
+
+                <div class="simulation-card" onclick="startSimulation('fraud-call')">
+                    <div class="simulation-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h4>Fraud Calls</h4>
+                    <p>Vishing & impersonation calls</p>
+                    <div class="difficulty-badge medium">Intermediate</div>
+                </div>
+
+                <div class="simulation-card" onclick="startSimulation('job-scam')">
+                    <div class="simulation-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h4>Job Scams</h4>
+                    <p>Fake job offers & interviews</p>
+                    <div class="difficulty-badge hard">Advanced</div>
+                </div>
+            </div>
+
+            <!-- Active Simulation -->
+            <div class="active-simulation" id="activeSimulation">
+                <div class="simulation-header">
+                    <h3><i class="fas fa-play-circle"></i> Active Simulation: <span id="simulationTitle">Phishing SMS</span></h3>
+                    <div class="simulation-stats">
+                        <span class="stat"><i class="fas fa-check-circle"></i> 85% Success Rate</span>
+                        <span class="stat"><i class="fas fa-clock"></i> 5 min avg</span>
+                    </div>
+                </div>
+
+                <div class="simulation-container">
+                    <!-- SMS Simulation -->
+                    <div class="sms-simulation" id="smsSimulation">
+                        <div class="phone-frame">
+                            <div class="phone-header">
+                                <div class="phone-time">14:30</div>
+                                <div class="phone-signal">
+                                    <i class="fas fa-signal"></i>
+                                    <i class="fas fa-wifi"></i>
+                                    <span>100%</span>
+                                </div>
+                            </div>
+                            
+                            <div class="sms-message received">
+                                <div class="message-sender">
+                                    <strong>Emirates NBD Alert</strong>
+                                    <span>+971 50 XXX XXXX</span>
+                                </div>
+                                <div class="message-content">
+                                    <p>URGENT: Your account has been locked due to suspicious activity. Verify now to avoid suspension:</p>
+                                    <a href="#" class="phishing-link">https://emirates-nbd-verify.com</a>
+                                    <p>Reply with OTP code to proceed.</p>
+                                </div>
+                                <div class="message-time">Now</div>
+                            </div>
+
+                            <div class="sms-message sent">
+                                <div class="message-content">
+                                    <p>What OTP code?</p>
+                                </div>
+                                <div class="message-time">Now</div>
+                            </div>
+
+                            <div class="sms-message received">
+                                <div class="message-sender">
+                                    <strong>Emirates NBD Alert</strong>
+                                    <span>+971 50 XXX XXXX</span>
+                                </div>
+                                <div class="message-content">
+                                    <p>123456 - Enter this code on the verification page. Do not share with anyone.</p>
+                                </div>
+                                <div class="message-time">Now</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question Section -->
+                    <div class="simulation-question">
+                        <h4>Is this SMS legitimate?</h4>
+                        <div class="answer-options">
+                            <button class="answer-btn" onclick="checkAnswer('real')">
+                                <i class="fas fa-check"></i> Yes, it's from my bank
+                            </button>
+                            <button class="answer-btn correct" onclick="checkAnswer('fake')">
+                                <i class="fas fa-times"></i> No, it's a phishing scam
+                            </button>
+                            <button class="answer-btn" onclick="checkAnswer('unsure')">
+                                <i class="fas fa-question"></i> I'm not sure
+                            </button>
+                        </div>
+
+                        <div class="feedback" id="feedback">
+                            <div class="feedback-content">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <div>
+                                    <strong>SCAM DETECTED!</strong>
+                                    <p>This is a common phishing attempt. Banks never ask for OTP via SMS. The link leads to a fake website.</p>
+                                    <div class="red-flags">
+                                        <p><i class="fas fa-flag"></i> Red Flag: Urgent language ("URGENT")</p>
+                                        <p><i class="fas fa-flag"></i> Red Flag: Request for OTP</p>
+                                        <p><i class="fas fa-flag"></i> Red Flag: Suspicious URL</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="simulation-controls">
+                    <button class="cta-btn secondary" onclick="resetSimulation()">
+                        <i class="fas fa-redo"></i> Try Again
+                    </button>
+                    <button class="cta-btn primary" onclick="nextScenario()">
+                        <i class="fas fa-arrow-right"></i> Next Scenario
+                    </button>
+                </div>
+            </div>
+
+            <!-- Progress & Stats -->
+            <div class="progress-section">
+                <h3><i class="fas fa-chart-line"></i> Your Training Progress</h3>
+                <div class="progress-grid">
+                    <div class="progress-card">
+                        <div class="progress-circle" data-progress="85">
+                            <svg viewBox="0 0 100 100">
+                                <circle cx="50" cy="50" r="45" class="progress-bg"></circle>
+                                <circle cx="50" cy="50" r="45" class="progress-bar"></circle>
+                            </svg>
+                            <div class="progress-value">85%</div>
+                        </div>
+                        <h4>Detection Rate</h4>
+                        <p>Scams identified correctly</p>
+                    </div>
+
+                    <div class="progress-card">
+                        <div class="progress-info">
+                            <div class="stat-number">12</div>
+                            <div class="stat-label">Scenarios Completed</div>
+                        </div>
+                        <h4>Experience</h4>
+                        <p>Real-world simulations</p>
+                    </div>
+
+                    <div class="progress-card">
+                        <div class="progress-info">
+                            <div class="stat-number">3:45</div>
+                            <div class="stat-label">Avg. Response Time</div>
+                        </div>
+                        <h4>Speed</h4>
+                        <p>Seconds to detect threats</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Tips -->
+            <div class="tips-section">
+                <h3><i class="fas fa-lightbulb"></i> UAE Scam Protection Tips</h3>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <i class="fas fa-ban"></i>
+                        <h4>Never Share OTP</h4>
+                        <p>Banks never ask for OTP via SMS or call</p>
+                    </div>
+                    <div class="tip-card">
+                        <i class="fas fa-link"></i>
+                        <h4>Check URLs</h4>
+                        <p>Look for .gov.ae or bank's official domain</p>
+                    </div>
+                    <div class="tip-card">
+                        <i class="fas fa-phone-slash"></i>
+                        <h4>Hang Up & Call Back</h4>
+                        <p>Use official numbers from bank websites</p>
+                    </div>
+                    <div class="tip-card">
+                        <i class="fas fa-user-secret"></i>
+                        <h4>Verify Identity</h4>
+                        <p>Ask for employee ID and verify with institution</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Emergency Contact -->
+            <div class="emergency-card">
+                <div class="emergency-header">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <h3>If You're Scammed</h3>
+                </div>
+                <div class="emergency-steps">
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <p><strong>Immediately contact</strong> your bank's fraud department</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <p><strong>Call Dubai Police</strong> at 999 (emergency) or 901</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <p><strong>Report to UAE Cyber Security</strong> at csa.gov.ae</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="main-footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>BeFrank</h4>
+                    <p>Your UAE Financial Companion</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="showPDPLInfo()">PDPL Compliance</a></li>
+                        <li><a href="#" onclick="showDisclaimers()">Disclaimers</a></li>
+                        <li><a href="#" onclick="showTerms()">Terms of Use</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Training</h4>
+                    <ul class="footer-links">
+                        <li><a href="scam-awareness.html">Scam Shield</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="frank-ai.html">Frank AI</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="legal-footer">
+                <p><strong>Educational Simulation:</strong> This Scam Shield feature provides realistic scam simulations for training purposes only. In real scam situations, contact Dubai Police immediately.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/scam-training.js"></script>
+</body>
+</html>
